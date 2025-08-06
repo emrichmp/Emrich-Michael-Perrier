@@ -8,10 +8,11 @@ const About = () => {
   })
 
   const skills = [
-    { category: 'Frontend', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Framer Motion'] },
-    { category: 'Backend', items: ['Node.js', 'Express', 'Python', 'Django', 'PostgreSQL', 'MongoDB'] },
-    { category: 'Tools & DevOps', items: ['Git', 'Docker', 'AWS', 'Vercel', 'CI/CD', 'Jest'] },
-    { category: 'Other', items: ['REST APIs', 'GraphQL', 'WebSockets', 'PWA', 'Mobile Development'] }
+    { category: 'Frontend', items: ['React', 'VueJS', 'TypeScript', 'JavaScript(ES6)', 'HTML', 'CSS', 'Tailwind CSS', 'Next.js', 'Quasar'] },
+    { category: 'Backend & Database', items: ['Ruby', 'Rails', 'Node.js', 'MongoDB', 'SQL', 'Supabase', 'Firebase'] },
+    { category: 'E-commerce & CMS', items: ['Shopify', 'Hydrogen', 'Sanity', 'HubSpot'] },
+    { category: 'Cloud & DevOps', items: ['AWS', 'Cloudflare', 'Git', 'OAuth'] },
+    { category: 'Tools & Services', items: ['Figma', 'Stripe', 'DocuSign', 'SendGrid', 'EmailJS', 'VideoSDK', 'Redux'] }
   ]
 
   return (
@@ -104,13 +105,14 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-gray-800"
+          className="grid grid-cols-2 md:grid-cols-5 gap-8 mt-16 pt-16 border-t border-gray-800"
         >
           {[
-            { number: '50+', label: 'Projects Completed' },
+            { number: '30+', label: 'Projects Completed' },
             { number: '5+', label: 'Years Experience' },
             { number: '100%', label: 'Client Satisfaction' },
-            { number: '24/7', label: 'Code Availability' }
+            { number: '24/7', label: 'Code Availability' },
+            { number: '100%', label: 'Job Success Score' }
           ].map((stat, index) => (
             <motion.div
               key={stat.label}

@@ -5,8 +5,10 @@ import DemoReel from './components/DemoReel'
 import About from './components/About'
 import Projects from './components/Projects'
 import Experience from './components/Experience'
-import Blog from './components/Blog'
+import Coaching from './components/Coaching'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
           <About />
           <Projects />
           <Experience />
-          <Blog />
+          <Coaching />
           <Contact />
         </main>
+        <Footer />
+        <ScrollToTop />
       </div>
     </Router>
   )

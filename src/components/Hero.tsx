@@ -45,7 +45,7 @@ const Hero = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Your Name
+            Emrich-Michael Perrier
           </motion.h1>
           
           <motion.p 
@@ -56,16 +56,6 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.6 }}
           >
             Web Developer
-          </motion.p>
-          
-          <motion.p 
-            className="text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed"
-            style={{ color: '#f6828c' }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            Crafting digital experiences through clean code and innovative solutions
           </motion.p>
         </motion.div>
 
