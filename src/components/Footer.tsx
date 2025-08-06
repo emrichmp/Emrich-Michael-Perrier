@@ -1,19 +1,16 @@
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Footer = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
-  })
+  });
 
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer 
-      className="bg-[#371e30] border-t border-[#a03e99] py-12"
-      ref={ref}
-    >
+    <footer className="bg-[#371e30] border-t border-[#a03e99] py-12" ref={ref}>
       <div className="container-max">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Brand Section with Contact Info */}
@@ -23,16 +20,10 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="text-center md:text-left"
           >
-            <h3 className="text-xl font-medium text-[#f59ca9] mb-4">
-              Emrich Michael Perrier
-            </h3>
+            <h3 className="text-xl font-medium text-[#f59ca9] mb-4">Emrich Michael Perrier</h3>
             <div className="space-y-2 text-sm">
-              <p className="text-gray-300">
-                emrichmichaelperrier@gmail.com
-              </p>
-              <p className="text-gray-300">
-                Los Angeles, CA
-              </p>
+              <p className="text-gray-300">emrichmichaelperrier@gmail.com</p>
+              <p className="text-gray-300">Los Angeles, CA</p>
             </div>
           </motion.div>
 
@@ -43,18 +34,17 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-center md:text-right"
           >
-            <h4 className="text-lg font-medium text-[#f59ca9] mb-4">
-              Quick Links
-            </h4>
+            <h4 className="text-lg font-medium text-[#f59ca9] mb-4">Quick Links</h4>
             <ul className="flex flex-col md:flex-row md:justify-end md:space-x-6 space-y-2 md:space-y-0">
               {[
-                { name: 'About', href: '#about' },
-                { name: 'Projects', href: '#projects' },
-                { name: 'Experience', href: '#experience' },
-                { name: 'Contact', href: '#contact' }
-              ].map((link) => (
+                { name: "About", href: "#about" },
+                { name: "Projects", href: "#projects" },
+                { name: "Experience", href: "#experience" },
+                { name: "Coaching", href: "#coaching" },
+                { name: "Contact", href: "#contact" }
+              ].map(link => (
                 <li key={link.name}>
-                  <a 
+                  <a
                     href={link.href}
                     className="text-gray-300 hover:text-[#f6828c] transition-colors duration-200 text-sm"
                   >
@@ -84,7 +74,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer 
+export default Footer;
