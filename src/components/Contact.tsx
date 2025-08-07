@@ -326,10 +326,13 @@ const Contact = () => {
                 <ul className="space-y-2">
                   {[
                     "Full-stack development projects",
+                    "Custom portfolio websites for creatives",
+                    "Sr Developer roles",
                     "React/TypeScript applications",
+                    "App integration with AI",
                     "API development and integration",
-                    "Performance optimization",
-                    "Technical consulting"
+                    "Technical consulting",
+                    "AI Development Coaching (Cursor, Replit, etc...)"
                   ].map((item, index) => (
                     <li key={index} className="flex items-center">
                       <span className="text-[#f6828c] mr-3 text-xs">•</span>
