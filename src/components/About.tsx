@@ -16,7 +16,7 @@ const About = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="heading-secondary mb-6">About Me</h2>
+          <h2 className="heading-secondary mb-6">About Emrich-Michael Perrier</h2>
         </motion.div>
 
         {/* Main Content Grid */}
@@ -59,12 +59,12 @@ const About = () => {
           >
             <div className="space-y-6 text-body text-gray-300">
               <p>
-                I'm <span className="text-white font-medium">Emrich</span>, a Top Rated Plus Full
-                Stack Developer with 5+ years of experience building web applications that actually
-                ship — and stick. From startups to agencies to direct clients, I've worked across
-                industries like e-commerce, analytics, media, and AI tooling, bringing high-traffic
-                platforms to life using modern tech stacks like React, Vue, TypeScript, Next.js, and
-                Ruby on Rails.
+                I'm <span className="text-white font-medium">Emrich-Michael Perrier</span>, a Top
+                Rated Plus Full Stack Developer in Los Angeles with 5+ years of experience building
+                web applications that actually ship — and stick. From startups to agencies to direct
+                clients, I've worked across industries like e-commerce, analytics, media, and AI
+                tooling, bringing high-traffic platforms to life using modern tech stacks like
+                React, Vue, TypeScript, Next.js, and Ruby on Rails.
               </p>
 
               <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-8 rounded-xl border border-gray-700/50 shadow-xl backdrop-blur-sm">

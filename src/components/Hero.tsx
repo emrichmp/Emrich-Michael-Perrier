@@ -155,14 +155,33 @@ const Hero = () => {
             Emrich-Michael Perrier
           </motion.h1>
 
-          <motion.p
-            className="text-xl sm:text-2xl lg:text-3xl font-light uppercase tracking-wider mb-8 text-white"
+          <motion.h2
+            className="text-xl sm:text-2xl lg:text-3xl font-light uppercase tracking-wider mb-4 text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            Web Developer
+            Full Stack Developer in Los Angeles
+          </motion.h2>
+
+          <motion.p
+            className="text-lg sm:text-xl lg:text-2xl font-light mb-6 text-gray-300"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 0.8 }}
+          >
+            React • Vue • TypeScript • Modern Web Applications
           </motion.p>
+
+          <motion.div
+            className="text-sm sm:text-base text-gray-400 mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 1, delay: 1.0 }}
+          >
+            <p>Top Rated Plus Developer • 5+ Years Experience • 100% Satisfaction Rate</p>
+            <p>$100K+ Earned on Upwork • Los Angeles Based</p>
+          </motion.div>
         </motion.div>
       </div>
 

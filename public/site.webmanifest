@@ -1,0 +1,21 @@
+{
+  "name": "Emrich-Michael Perrier - Full Stack Developer",
+  "short_name": "Emrich Perrier",
+  "description": "Top Rated Plus Full Stack Developer in Los Angeles specializing in React, Vue, and TypeScript development",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#371e30",
+  "theme_color": "#371e30",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/emp.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
