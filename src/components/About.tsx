@@ -7,33 +7,6 @@ const About = () => {
     threshold: 0.1
   });
 
-  const skills = [
-    {
-      category: "Frontend",
-      items: [
-        "React",
-        "VueJS",
-        "TypeScript",
-        "JavaScript(ES6)",
-        "HTML",
-        "CSS",
-        "Tailwind CSS",
-        "Next.js",
-        "Quasar"
-      ]
-    },
-    {
-      category: "Backend & Database",
-      items: ["Ruby", "Rails", "Node.js", "MongoDB", "SQL", "Supabase", "Firebase"]
-    },
-    { category: "E-commerce & CMS", items: ["Shopify", "Hydrogen", "Sanity", "HubSpot"] },
-    { category: "Cloud & DevOps", items: ["AWS", "Cloudflare", "Git", "OAuth", "Vercel"] },
-    {
-      category: "Tools & Services",
-      items: ["Figma", "Stripe", "DocuSign", "SendGrid", "EmailJS", "VideoSDK", "Redux"]
-    }
-  ];
-
   return (
     <section id="about" className="section-padding" ref={ref}>
       <div className="container-max">
@@ -47,7 +20,7 @@ const About = () => {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-16 items-center mb-16">
+        <div className="grid lg:grid-cols-3 gap-16 items-center mb-8">
           {/* Profile Picture */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -177,47 +150,12 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Skills Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl font-light uppercase tracking-wide mb-8 text-center">
-            Skills & Technologies
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skills.map((skillGroup, index) => (
-              <motion.div
-                key={skillGroup.category}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                className="bg-gray-800/30 p-6 rounded-lg border border-gray-700"
-              >
-                <h4 className="text-lg font-medium text-white mb-4">{skillGroup.category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map(skill => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-gray-700 text-gray-300 text-sm rounded-full border border-gray-600 hover:border-orange-500 hover:text-orange-400 transition-colors"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Stats */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-8 pt-4 border-t border-gray-800"
+          className="grid grid-cols-2 md:grid-cols-5 gap-8"
         >
           {[
             { number: "30+", label: "Projects Completed" },
