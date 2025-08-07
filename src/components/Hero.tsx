@@ -161,17 +161,8 @@ const Hero = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            Full Stack Developer in Los Angeles
+            Full Stack Developer
           </motion.h2>
-
-          <motion.p
-            className="text-lg sm:text-xl lg:text-2xl font-light mb-6 text-gray-300"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.8 }}
-          >
-            React • Vue • TypeScript • Modern Web Applications
-          </motion.p>
 
           <motion.div
             className="text-sm sm:text-base text-gray-400 mb-8"
