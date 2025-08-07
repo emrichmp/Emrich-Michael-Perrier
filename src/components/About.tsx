@@ -56,19 +56,11 @@ const About = () => {
             className="lg:col-span-1 flex justify-center lg:justify-start"
           >
             <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-700 shadow-2xl">
-              {/* Placeholder for profile picture */}
-              <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                <div className="text-center text-gray-400">
-                  <div className="text-6xl mb-2">📸</div>
-                  <p className="text-sm">Add your photo here</p>
-                </div>
-              </div>
-              {/* Uncomment and replace with actual image */}
-              {/* <img 
-                src="/path-to-your-photo.jpg" 
-                alt="Emrich-Michael Perrier" 
+              <img
+                src="/About/emrich.png"
+                alt="Emrich-Michael Perrier"
                 className="w-full h-full object-cover"
-              /> */}
+              />
             </div>
           </motion.div>
 
