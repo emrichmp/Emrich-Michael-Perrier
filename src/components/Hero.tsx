@@ -179,8 +179,8 @@ const Hero = () => {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 1, delay: 1.0 }}
           >
-            <p>Top Rated Plus Developer • 5+ Years Experience • 100% Satisfaction Rate</p>
-            <p>$100K+ Earned on Upwork • Los Angeles Based</p>
+            <p>Top Rated Plus Developer • 5+ Years Experience • 100% Job Success Score</p>
+            <p>$100K+ Earned on Upwork • New York Born • Los Angeles Based</p>
           </motion.div>
         </motion.div>
       </div>
