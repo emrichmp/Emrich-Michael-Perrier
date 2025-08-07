@@ -47,20 +47,33 @@ const About = () => {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-3 gap-12 items-start mb-16">
+        <div className="grid lg:grid-cols-3 gap-16 items-center mb-16">
           {/* Profile Picture */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-1 flex justify-center lg:justify-start"
+            className="lg:col-span-1 flex justify-center lg:justify-start lg:pt-8"
           >
-            <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-700 shadow-2xl">
-              <img
-                src="/About/emrich.png"
-                alt="Emrich-Michael Perrier"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative group">
+              {/* Background gradient ring */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
+
+              {/* Main image container */}
+              <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-700/50 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 group-hover:border-orange-500/50 transition-all duration-500">
+                <img
+                  src="/About/emrich.png"
+                  alt="Emrich-Michael Perrier"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+
+              {/* Floating accent elements */}
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 animate-pulse"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300"></div>
             </div>
           </motion.div>
 
