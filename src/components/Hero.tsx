@@ -23,11 +23,8 @@ const Hero = () => {
           preload="auto"
           webkit-playsinline="true"
           className="w-full h-full object-cover scale-110 blur-sm"
-          poster="/About/emrich.png"
         >
           <source src="/Hero/Hero.mp4" type="video/mp4" />
-          {/* Fallback for devices that don't support video */}
-          <div className="w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-800" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
