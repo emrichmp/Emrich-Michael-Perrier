@@ -131,8 +131,8 @@ const Coaching = () => {
                     <span
                       className={`px-3 py-1 text-xs font-medium rounded-full ${
                         service.category === "powerlifting"
-                          ? "bg-red-900/30 text-red-400 border border-red-700"
-                          : "bg-blue-900/30 text-blue-400 border border-blue-700"
+                          ? "bg-[#3B81F6]/30 text-[#3B81F6] border border-[#3B81F6]/50"
+                          : "bg-[#3B81F6]/30 text-[#3B81F6] border border-[#3B81F6]/50"
                       }`}
                     >
                       {service.category === "powerlifting" ? "Powerlifting" : "AI Development"}
@@ -174,8 +174,8 @@ const Coaching = () => {
                     rel="noopener noreferrer"
                     className={`px-4 py-2 text-sm rounded-md font-medium transition-all duration-200 ${
                       service.category === "powerlifting"
-                        ? "bg-red-600 hover:bg-red-700 text-white shadow-lg hover:shadow-red-500/25"
-                        : "bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-blue-500/25"
+                        ? "bg-[#3B81F6] hover:bg-[#3B81F6]/80 text-white shadow-lg hover:shadow-[#3B81F6]/25"
+                        : "bg-[#3B81F6] hover:bg-[#3B81F6]/80 text-white shadow-lg hover:shadow-[#3B81F6]/25"
                     }`}
                   >
                     {service.ctaText}
@@ -206,7 +206,7 @@ const Coaching = () => {
                 <div className="flex items-center mb-4">
                   <div
                     className={`w-3 h-3 rounded-full mr-3 ${
-                      testimonial.category === "powerlifting" ? "bg-red-500" : "bg-blue-500"
+                      testimonial.category === "powerlifting" ? "bg-[#3B81F6]" : "bg-[#3B81F6]"
                     }`}
                   ></div>
                   <div>
@@ -240,7 +240,7 @@ const Coaching = () => {
                 href="https://calendly.com/emrichmp/powerlifting-consultation"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-lg transition-all duration-200 shadow-lg hover:shadow-red-500/25"
+                className="px-6 py-3 bg-[#3B81F6] hover:bg-[#3B81F6]/80 text-white rounded-lg transition-all duration-200 shadow-lg hover:shadow-[#3B81F6]/25"
               >
                 Book a Consultation
               </a>

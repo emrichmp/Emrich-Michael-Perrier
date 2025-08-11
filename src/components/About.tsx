@@ -30,10 +30,10 @@ const About = () => {
           >
             <div className="relative group">
               {/* Background gradient ring */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#3B81F6] via-[#3B81F6] to-[#3B81F6] rounded-full blur-lg opacity-30 group-hover:opacity-50 transition duration-500"></div>
 
               {/* Main image container */}
-              <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-700/50 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 group-hover:border-orange-500/50 transition-all duration-500">
+              <div className="relative w-72 h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-gray-700/50 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 group-hover:border-[#3B81F6]/50 transition-all duration-500">
                 <img
                   src="/About/emrich.png"
                   alt="Emrich-Michael Perrier"
@@ -45,8 +45,8 @@ const About = () => {
               </div>
 
               {/* Floating accent elements */}
-              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 animate-pulse"></div>
-              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-r from-orange-400 to-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300"></div>
+              <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-[#3B81F6] to-[#3B81F6] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-200 animate-pulse"></div>
+              <div className="absolute -bottom-2 -left-2 w-4 h-4 bg-gradient-to-r from-[#3B81F6] to-[#3B81F6] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 delay-300"></div>
             </div>
           </motion.div>
 
@@ -69,18 +69,18 @@ const About = () => {
 
               <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/60 p-8 rounded-xl border border-gray-700/50 shadow-xl backdrop-blur-sm">
                 <div className="flex items-center mb-6">
-                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full flex items-center justify-center mr-4">
+                  <div className="w-8 h-8 bg-gradient-to-r from-[#3B81F6] to-[#3B81F6] rounded-full flex items-center justify-center mr-4">
                     <span className="text-white text-sm font-bold">★</span>
                   </div>
                   <h4 className="text-white font-semibold text-xl">Key Highlights</h4>
                 </div>
                 <div className="grid gap-4">
                   <div className="flex items-start group hover:bg-gray-700/30 p-3 rounded-lg transition-all duration-300">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#3B81F6] rounded-full mt-2 mr-4 flex-shrink-0"></div>
                     <div>
                       <span className="text-gray-300">
                         Led full-stack development of{" "}
-                        <span className="text-white font-semibold bg-gradient-to-r from-orange-500/20 to-orange-600/20 px-1 rounded">
+                        <span className="text-white font-semibold bg-gradient-to-r from-[#3B81F6]/20 to-[#3B81F6]/20 px-1 rounded">
                           Open & Run
                         </span>
                         , a business management platform built from scratch using React, Supabase,
@@ -89,11 +89,11 @@ const About = () => {
                     </div>
                   </div>
                   <div className="flex items-start group hover:bg-gray-700/30 p-3 rounded-lg transition-all duration-300">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#3B81F6] rounded-full mt-2 mr-4 flex-shrink-0"></div>
                     <div>
                       <span className="text-gray-300">
                         Spearheaded the migration of{" "}
-                        <span className="text-white font-semibold bg-gradient-to-r from-orange-500/20 to-orange-600/20 px-1 rounded">
+                        <span className="text-white font-semibold bg-gradient-to-r from-[#3B81F6]/20 to-[#3B81F6]/20 px-1 rounded">
                           Tango Analytics'
                         </span>{" "}
                         map viewer to Vue 3 + Quasar 2.
@@ -101,19 +101,19 @@ const About = () => {
                     </div>
                   </div>
                   <div className="flex items-start group hover:bg-gray-700/30 p-3 rounded-lg transition-all duration-300">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#3B81F6] rounded-full mt-2 mr-4 flex-shrink-0"></div>
                     <div>
                       <span className="text-gray-300">
                         Built and maintained apps for brands like{" "}
-                        <span className="text-white font-semibold bg-gradient-to-r from-orange-500/20 to-orange-600/20 px-1 rounded">
+                        <span className="text-white font-semibold bg-gradient-to-r from-[#3B81F6]/20 to-[#3B81F6]/20 px-1 rounded">
                           OnlyFans (OFTV)
                         </span>
                         ,{" "}
-                        <span className="text-white font-semibold bg-gradient-to-r from-orange-500/20 to-orange-600/20 px-1 rounded">
+                        <span className="text-white font-semibold bg-gradient-to-r from-[#3B81F6]/20 to-[#3B81F6]/20 px-1 rounded">
                           La Ligne
                         </span>
                         , and{" "}
-                        <span className="text-white font-semibold bg-gradient-to-r from-orange-500/20 to-orange-600/20 px-1 rounded">
+                        <span className="text-white font-semibold bg-gradient-to-r from-[#3B81F6]/20 to-[#3B81F6]/20 px-1 rounded">
                           The Lemonade Creative
                         </span>
                         .
@@ -121,7 +121,7 @@ const About = () => {
                     </div>
                   </div>
                   <div className="flex items-start group hover:bg-gray-700/30 p-3 rounded-lg transition-all duration-300">
-                    <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-[#3B81F6] rounded-full mt-2 mr-4 flex-shrink-0"></div>
                     <div>
                       <span className="text-gray-300">
                         Regularly design and develop sleek portfolio websites for creatives like

@@ -194,7 +194,7 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-8 py-4 bg-[#f59ca9] hover:bg-[#f6828c] disabled:bg-gray-600 text-white rounded-lg font-medium transition-colors"
+                className="w-full px-8 py-4 bg-[#371e30] hover:bg-[#4a2a3f] disabled:bg-gray-600 border border-[#f59ca9] hover:border-[#f6828c] text-[#f59ca9] hover:text-[#f6828c] rounded-lg font-medium transition-colors"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -253,6 +253,21 @@ const Contact = () => {
                     </motion.a>
                   ))}
                 </div>
+
+                {/* Résumé Button */}
+                <motion.a
+                  href="https://docs.google.com/document/d/1LlwHtLDJWqDncr79VObXi--MImGA6dua7uNbmwehm4M/edit"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-6 px-6 py-3 bg-[#371e30] border border-[#f59ca9] rounded-lg text-[#f59ca9] hover:text-[#f6828c] hover:border-[#f6828c] transition-colors duration-200 font-medium"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  Résumé
+                </motion.a>
               </div>
 
               {/* Contact Details */}

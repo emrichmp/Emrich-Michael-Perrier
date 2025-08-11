@@ -206,9 +206,9 @@ const Navbar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileTap={{ scale: 0.98 }}
-                  className="mt-6 px-6 py-3 bg-[#371e30] border border-[#a03e99] rounded-lg text-[#f59ca9] hover:text-[#f6828c] hover:border-[#f6828c] transition-colors duration-200 font-medium text-lg"
+                  className="mt-6 px-6 py-3 bg-[#371e30] border border-[#f59ca9] rounded-lg text-[#f59ca9] hover:text-[#f6828c] hover:border-[#f6828c] transition-colors duration-200 font-medium text-lg"
                 >
-                  Resume
+                  Résumé
                 </motion.a>
               </div>
             </motion.div>
