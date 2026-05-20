@@ -15,7 +15,7 @@ const SEO: React.FC<SEOProps> = ({
   description = "Top Rated Plus Full Stack Developer in Los Angeles with 5+ years experience. Expert in React, Vue, TypeScript, and modern web applications.",
   keywords = "Emrich-Michael Perrier, Emrich Perrier, Full Stack Developer, Los Angeles Developer, React Developer, Vue Developer, TypeScript Developer",
   image = "/About/emrich.png",
-  url = "https://emrich-michael-perrier.com",
+  url = "https://www.emrichperrier.com/",
   type = "website",
   section
 }) => {
