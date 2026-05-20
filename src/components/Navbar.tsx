@@ -5,6 +5,7 @@ const navItems = [
   { name: "About", href: "#about", id: "about" },
   { name: "Projects", href: "#projects", id: "projects" },
   { name: "Experience", href: "#experience", id: "experience" },
+  { name: "Beyond Code", href: "#coaching", id: "coaching" },
   { name: "Contact", href: "#contact", id: "contact" }
 ];
 
@@ -51,28 +52,25 @@ const socialLinks = [
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
       </svg>
     )
-  },
-  {
-    name: "Email",
-    href: "mailto:emrichmichaelperrier@gmail.com",
-    icon: (
-      <svg
-        className="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
-      </svg>
-    )
   }
 ];
+
+const emailIcon = (
+  <svg
+    className="w-4 h-4"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+    />
+  </svg>
+);
 
 const socialLinkClassName =
   "group relative text-ink-muted hover:text-brand-accent hover:-translate-y-0.5 transition-all duration-200";
@@ -84,6 +82,13 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText("emrichmichaelperrier@gmail.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,42 +103,25 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const sectionIds = ["about", "projects", "experience", "contact"];
-    const visibility = new Map<string, number>();
+    const sectionIds = ["about", "projects", "experience", "coaching", "contact"];
 
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          visibility.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
-        });
+    const updateActiveSection = () => {
+      const scrollPos = window.scrollY + window.innerHeight * 0.25;
+      let activeId: string | null = null;
 
-        let bestId: string | null = null;
-        let bestRatio = 0;
-
-        sectionIds.forEach(id => {
-          const ratio = visibility.get(id) ?? 0;
-          if (ratio > bestRatio) {
-            bestRatio = ratio;
-            bestId = id;
-          }
-        });
-
-        if (bestId && bestRatio > 0) {
-          setActiveSection(bestId);
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          activeId = id;
         }
-      },
-      {
-        rootMargin: "-20% 0px -55% 0px",
-        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
-      }
-    );
+      });
 
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+      setActiveSection(activeId);
+    };
 
-    return () => observer.disconnect();
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    return () => window.removeEventListener("scroll", updateActiveSection);
   }, []);
 
   const scrollToSection = (href: string) => {
@@ -157,7 +145,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={() => scrollToSection("#hero")}
-            className="text-sm font-light text-ink-primary hover:text-brand-accent transition-colors duration-300"
+            className="text-sm font-normal text-ink-primary hover:text-brand-accent transition-colors duration-300"
           >
             Emrich Perrier
           </button>
@@ -181,7 +169,9 @@ const Navbar = () => {
                   />
                   <span
                     className={`label-mono transition-colors duration-200 ${
-                      isActive ? "text-ink-primary" : "text-ink-muted group-hover:text-ink-primary"
+                      isActive
+                        ? "text-ink-primary"
+                        : "text-ink-primary group-hover:text-brand-accent"
                     }`}
                   >
                     {item.name}
@@ -237,7 +227,7 @@ const Navbar = () => {
                       key={item.name}
                       type="button"
                       onClick={() => scrollToSection(item.href)}
-                      className="flex flex-col items-center gap-2"
+                      className="flex flex-col items-center gap-2 group"
                     >
                       <span
                         className={`w-1 h-1 rounded-full bg-brand-accent transition-opacity duration-200 ${
@@ -247,7 +237,9 @@ const Navbar = () => {
                       />
                       <span
                         className={`label-mono text-lg transition-colors duration-200 ${
-                          isActive ? "text-ink-primary" : "text-ink-muted hover:text-ink-primary"
+                          isActive
+                            ? "text-ink-primary"
+                            : "text-ink-primary group-hover:text-brand-accent"
                         }`}
                       >
                         {item.name}
@@ -263,24 +255,37 @@ const Navbar = () => {
 
       {/* Fixed bottom-left social links */}
       <div className="hidden sm:flex fixed bottom-8 left-8 z-50 flex-col items-center gap-4">
-        {socialLinks.map(link => {
-          const isMailto = link.href.startsWith("mailto:");
-          return (
-            <a
-              key={link.name}
-              href={link.href}
-              {...(isMailto ? {} : { target: "_blank", rel: "noopener noreferrer" })}
-              className={socialLinkClassName}
-              aria-label={link.name}
-            >
-              <span className={socialTooltipClassName} aria-hidden="true">
-                {link.name}
-              </span>
-              {link.icon}
-            </a>
-          );
-        })}
-        <div className="w-px h-16 bg-brand-border mt-3" aria-hidden="true" />
+        {socialLinks.map(link => (
+          <a
+            key={link.name}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={socialLinkClassName}
+            aria-label={link.name}
+          >
+            <span className={socialTooltipClassName} aria-hidden="true">
+              {link.name}
+            </span>
+            {link.icon}
+          </a>
+        ))}
+        <button
+          type="button"
+          onClick={handleCopyEmail}
+          className={socialLinkClassName}
+          aria-label="Email"
+        >
+          <span
+            className={`${socialTooltipClassName}${
+              emailCopied ? " opacity-100 translate-x-0.5 text-brand-accent" : ""
+            }`}
+            aria-hidden="true"
+          >
+            {emailCopied ? "Copied!" : "Email"}
+          </span>
+          {emailIcon}
+        </button>
       </div>
     </>
   );

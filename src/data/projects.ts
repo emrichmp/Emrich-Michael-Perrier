@@ -15,6 +15,90 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 5,
+    title: "OFTV Web App",
+    description: "Major web app components development including navbar, header & footer",
+    video: "/Projects/OFTV.mp4",
+    technologies: ["Vue.js", "TypeScript", "VueX", "HTML", "CSS", "JavaScript", "Figma"],
+    liveUrl: "https://of.tv/",
+    longDescription:
+      "Worked on major website components such as the navbar, header & footer for the of.tv website. Utilized website examples and Figma designs to construct components using Vue.js, TypeScript, and VueX for state management.",
+    features: [
+      "Navbar component development and implementation",
+      "Header section design and functionality",
+      "Footer component construction",
+      "Figma design integration and implementation",
+      "Vue.js component architecture",
+      "TypeScript integration for type safety"
+    ]
+  },
+  {
+    id: 4,
+    title: "La Ligne NYC E-Commerce",
+    description: "E-commerce website development and maintenance for luxury fashion brand",
+    image: "/Projects/LaLigneNYC.png",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Shopify",
+      "Hydrogen",
+      "Redux",
+      "styled-components",
+      "JavaScript"
+    ],
+    liveUrl: "https://lalignenyc.com",
+    longDescription:
+      "Completed short-term contributions on the La Ligne NYC e-commerce website for The Lemonade Creative. Work included React/TypeScript code improvements, bug fixes, Shopify Scripts to Shopify Functions migration, and responsive design enhancements for the luxury fashion brand.",
+    features: [
+      "React/TypeScript codebase improvements and optimizations",
+      "Bug ticket resolution and client support",
+      "Shopify Scripts to Shopify Functions migration",
+      "Responsive design enhancements and fixes",
+      "E-commerce functionality improvements",
+      "Performance optimization and code maintenance"
+    ]
+  },
+  {
+    id: 3,
+    title: "Open & Run Platform",
+    description:
+      "Full-stack business management platform for incident reporting, staff management, and operational excellence",
+    image: "/Projects/OpenAndRun.png",
+    technologies: [
+      "React",
+      "Next.js",
+      "Supabase",
+      "Vercel",
+      "Tailwind CSS",
+      "Stripe",
+      "NextAuth.js",
+      "SendGrid"
+    ],
+    liveUrl: "https://app.openandrun.com/",
+    websiteUrl: "https://www.openandrun.com/",
+    longDescription:
+      "A comprehensive full-stack business management platform built as the Senior Developer and sole developer for Open & Run. The platform streamlines incident reporting, staff management, and operational processes for service-based businesses. Features include user authentication, real-time incident reporting, automated PDF generation, and integrated billing.",
+    features: [
+      "User authentication with NextAuth.js and email verification",
+      "Staff and location management system",
+      "Real-time incident reporting tool with photo attachments",
+      "DocuSign integration for automated PDF generation",
+      "Stripe API integration for billing and subscriptions",
+      "Real-time chat tool for team communication"
+    ]
+  },
+  {
+    id: 11,
+    title: "Coeur Leather",
+    description:
+      "High-end e-commerce storefront for a luxury leather goods brand. Migrated from Shopify Hydrogen back to Shopify Liquid for maintainability and native Shopify features.",
+    image: "/Projects/CoeurLeather.png",
+    technologies: ["Shopify", "Liquid", "JavaScript", "CSS"],
+    liveUrl: "https://coeurleather.com",
+    longDescription: "Coming soon.",
+    features: []
+  },
+  {
     id: 1,
     title: "Siddharth Agrawal Films Portfolio",
     description:
@@ -53,77 +137,26 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: 3,
-    title: "Open & Run Platform",
+    id: 10,
+    title: "Intrinsic Work",
     description:
-      "Full-stack business management platform for incident reporting, staff management, and operational excellence",
-    image: "/Projects/OpenAndRun.png",
-    technologies: [
-      "React",
-      "Next.js",
-      "Supabase",
-      "Vercel",
-      "Tailwind CSS",
-      "Stripe",
-      "NextAuth.js",
-      "SendGrid"
-    ],
-    liveUrl: "https://app.openandrun.com/",
-    websiteUrl: "https://www.openandrun.com/",
-    longDescription:
-      "A comprehensive full-stack business management platform built as the Senior Developer and sole developer for Open & Run. The platform streamlines incident reporting, staff management, and operational processes for service-based businesses. Features include user authentication, real-time incident reporting, automated PDF generation, and integrated billing.",
-    features: [
-      "User authentication with NextAuth.js and email verification",
-      "Staff and location management system",
-      "Real-time incident reporting tool with photo attachments",
-      "DocuSign integration for automated PDF generation",
-      "Stripe API integration for billing and subscriptions",
-      "Real-time chat tool for team communication"
-    ]
+      "Productivity SaaS built around deep work and intentional time blocking — Super Day, Super List, Big Goals.",
+    image: "/Projects/IntrinsicWork.png",
+    technologies: ["Next.js", "NestJS", "TypeScript", "Supabase", "PostgreSQL"],
+    liveUrl: "https://www.myintrinsicwork.com/",
+    longDescription: "Coming soon.",
+    features: []
   },
   {
-    id: 4,
-    title: "La Ligne NYC E-Commerce",
-    description: "E-commerce website development and maintenance for luxury fashion brand",
-    image: "/Projects/LaLigneNYC.png",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Shopify",
-      "Hydrogen",
-      "Redux",
-      "styled-components",
-      "JavaScript"
-    ],
-    liveUrl: "https://lalignenyc.com",
-    longDescription:
-      "Completed short-term contributions on the La Ligne NYC e-commerce website for The Lemonade Creative. Work included React/TypeScript code improvements, bug fixes, Shopify Scripts to Shopify Functions migration, and responsive design enhancements for the luxury fashion brand.",
-    features: [
-      "React/TypeScript codebase improvements and optimizations",
-      "Bug ticket resolution and client support",
-      "Shopify Scripts to Shopify Functions migration",
-      "Responsive design enhancements and fixes",
-      "E-commerce functionality improvements",
-      "Performance optimization and code maintenance"
-    ]
-  },
-  {
-    id: 5,
-    title: "OFTV Website",
-    description: "Major website components development including navbar, header & footer",
-    video: "/Projects/OFTV.mp4",
-    technologies: ["Vue.js", "TypeScript", "VueX", "HTML", "CSS", "JavaScript", "Figma"],
-    liveUrl: "https://of.tv/",
-    longDescription:
-      "Worked on major website components such as the navbar, header & footer for the of.tv website. Utilized website examples and Figma designs to construct components using Vue.js, TypeScript, and VueX for state management.",
-    features: [
-      "Navbar component development and implementation",
-      "Header section design and functionality",
-      "Footer component construction",
-      "Figma design integration and implementation",
-      "Vue.js component architecture",
-      "TypeScript integration for type safety"
-    ]
+    id: 9,
+    title: "Helios Solar Tracker",
+    description:
+      "Compliance SaaS for solar business owners to track material participation hours for IRS federal tax credits.",
+    image: "/Projects/Helios.png",
+    technologies: ["TypeScript", "React", "Express", "PostgreSQL", "Drizzle ORM"],
+    liveUrl: "https://solar-time-tracker.com/",
+    longDescription: "Coming soon.",
+    features: []
   },
   {
     id: 6,

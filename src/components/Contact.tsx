@@ -1,10 +1,30 @@
-import { useState, useRef } from "react";
+import { useState, useRef, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import emailjs from "@emailjs/browser";
 
 const fieldClassName =
-  "w-full bg-transparent border-b border-brand-border px-0 py-3 text-ink-primary font-light text-sm focus:outline-none focus:border-ink-secondary transition-colors duration-200 placeholder:text-ink-muted placeholder:font-light";
+  "w-full bg-transparent border-b border-transparent px-0 py-3 text-ink-primary font-light text-sm focus:outline-none focus:border-ink-secondary transition-colors duration-200 placeholder:text-ink-muted placeholder:font-light";
+
+const AnimatedField = ({
+  children,
+  delay,
+  inView
+}: {
+  children: ReactNode;
+  delay: number;
+  inView: boolean;
+}) => (
+  <div className="relative">
+    {children}
+    <motion.div
+      className="absolute bottom-0 left-0 h-px bg-brand-border"
+      initial={{ width: "0%" }}
+      animate={inView ? { width: "100%" } : { width: "0%" }}
+      transition={{ duration: 1, delay, ease: "easeOut" }}
+    />
+  </div>
+);
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -16,9 +36,13 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const [ref, inView] = useInView({
+  const [leftRef, leftInView] = useInView({
     triggerOnce: true,
     threshold: 0.15
+  });
+  const [formRef, formInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -57,34 +81,35 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-brand-base" ref={ref}>
-      <div className="container-max mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+    <section id="contact" className="section-padding bg-brand-base">
+      <motion.div className="container-max mx-auto">
+        <motion.div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            ref={leftRef}
+            initial={{ opacity: 0 }}
+            animate={leftInView ? { opacity: 1 } : {}}
+            transition={{ duration: 1.2 }}
             className="lg:col-span-5"
           >
-            <div className="label-mono">Contact</div>
-            <div className="accent-line mt-3 mb-8" />
+            <motion.div className="label-mono">Contact</motion.div>
+            <motion.div className="accent-line mt-3 mb-8" />
             <p className="text-2xl font-light text-ink-primary leading-relaxed">
               Have a project in mind or just want to talk? I'm always open to the right
               conversation.
             </p>
 
-            <div className="mt-8 space-y-3">
-              <div className="flex items-center gap-3">
+            <motion.div className="mt-8 space-y-3">
+              <motion.div className="flex items-center gap-3">
                 <span className="label-mono text-ink-muted">Email</span>
                 <span className="text-sm font-light text-ink-secondary">
                   emrichmichaelperrier@gmail.com
                 </span>
-              </div>
-              <div className="flex items-center gap-3">
+              </motion.div>
+              <motion.div className="flex items-center gap-3">
                 <span className="label-mono text-ink-muted">Location</span>
                 <span className="text-sm font-light text-ink-secondary">Los Angeles, CA</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             <p className="mt-8 label-mono text-ink-muted">
               <span className="inline-block w-2 h-2 rounded-full bg-brand-accent mr-2 align-middle" />
@@ -92,15 +117,10 @@ const Contact = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-6 lg:col-start-7"
-          >
+          <motion.div ref={formRef} className="lg:col-span-6 lg:col-start-7">
             <form ref={form} onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
+              <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <AnimatedField delay={0.2} inView={formInView}>
                   <label htmlFor="name" className="label-mono text-ink-muted mb-2 block">
                     Name
                   </label>
@@ -114,8 +134,8 @@ const Contact = () => {
                     className={fieldClassName}
                     placeholder="Your name"
                   />
-                </div>
-                <div>
+                </AnimatedField>
+                <AnimatedField delay={0.5} inView={formInView}>
                   <label htmlFor="email" className="label-mono text-ink-muted mb-2 block">
                     Email
                   </label>
@@ -129,26 +149,28 @@ const Contact = () => {
                     className={fieldClassName}
                     placeholder="your@email.com"
                   />
-                </div>
-              </div>
+                </AnimatedField>
+              </motion.div>
 
-              <div className="mt-6">
-                <label htmlFor="message" className="label-mono text-ink-muted mb-2 block">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={5}
-                  className={`${fieldClassName} resize-none`}
-                  placeholder="Tell me about your project or just say hello!"
-                />
-              </div>
+              <motion.div className="mt-6">
+                <AnimatedField delay={0.8} inView={formInView}>
+                  <label htmlFor="message" className="label-mono text-ink-muted mb-2 block">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={5}
+                    className={`${fieldClassName} resize-none`}
+                    placeholder="Tell me about your project or just say hello!"
+                  />
+                </AnimatedField>
+              </motion.div>
 
-              <div className="mt-8 flex flex-col items-stretch sm:items-end gap-3">
+              <motion.div className="mt-8 flex flex-col items-stretch sm:items-end gap-3">
                 <button
                   type="submit"
                   disabled={isSubmitting || submitStatus === "success"}
@@ -169,11 +191,11 @@ const Contact = () => {
                     Something went wrong.
                   </p>
                 )}
-              </div>
+              </motion.div>
             </form>
           </motion.div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

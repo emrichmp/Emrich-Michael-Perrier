@@ -40,7 +40,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full pb-24 px-6 sm:px-12 lg:px-24 text-left">
+      <div className="relative z-10 w-full pb-24 px-6 sm:px-12 lg:px-24 lg:ml-12 text-left">
         <motion.span
           className="label-mono text-brand-accent mb-4 block"
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ const Hero = () => {
           Full Stack Engineer & Co-Founding CTO
         </motion.span>
 
-        <h1 className="heading-primary text-ink-primary font-light tracking-tight">
+        <h1 className="heading-primary text-ink-primary font-normal tracking-tight">
           <motion.span
             className="block"
             initial={{ opacity: 0, y: 40 }}

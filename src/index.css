@@ -29,8 +29,11 @@
 @layer components {
   .section-padding { @apply px-6 sm:px-12 lg:px-24 py-20 sm:py-28; }
   .container-max { @apply max-w-5xl mx-auto; }
-  .heading-primary { @apply text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight; }
-  .heading-secondary { @apply text-3xl sm:text-4xl font-light tracking-tight; }
-  .label-mono { font-family: 'JetBrains Mono', monospace; @apply text-xs text-ink-muted tracking-widest uppercase; }
+  .heading-primary { @apply text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight; }
+  .heading-secondary { @apply text-3xl sm:text-4xl font-normal tracking-tight; }
+  .label-mono {
+    font-family: 'Inter', sans-serif;
+    @apply text-xs text-ink-muted tracking-widest uppercase;
+  }
   .accent-line { @apply w-8 h-px bg-brand-accent; }
 }
