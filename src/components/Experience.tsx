@@ -53,8 +53,7 @@ const skillGroups = [
 
 const allSkills = Array.from(new Set(skillGroups.flatMap(group => group.skills)));
 
-const tagClassName =
-  "label-mono text-ink-muted text-[10px] border border-brand-border px-2 py-0.5";
+const tagClassName = "label-mono text-ink-muted text-[10px] border border-brand-border px-2 py-0.5";
 
 const Experience = () => {
   const [ref, inView] = useInView({

@@ -35,6 +35,7 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const [leftRef, leftInView] = useInView({
     triggerOnce: true,
@@ -44,6 +45,12 @@ const Contact = () => {
     triggerOnce: true,
     threshold: 0.2
   });
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText("emrichmichaelperrier@gmail.com");
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000);
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -81,7 +88,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-brand-base">
+    <section
+      id="contact"
+      className="bg-brand-base px-6 pt-20 pb-10 sm:px-12 sm:pt-28 sm:pb-12 lg:px-24"
+    >
       <motion.div className="container-max mx-auto">
         <motion.div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
           <motion.div
@@ -99,11 +109,27 @@ const Contact = () => {
             </p>
 
             <motion.div className="mt-8 space-y-3">
-              <motion.div className="flex items-center gap-3">
+              <motion.div className="flex flex-wrap items-center gap-3">
                 <span className="label-mono text-ink-muted">Email</span>
-                <span className="text-sm font-light text-ink-secondary">
-                  emrichmichaelperrier@gmail.com
-                </span>
+                <button
+                  type="button"
+                  onClick={handleCopyEmail}
+                  className="cursor-pointer border-0 bg-transparent p-0 text-left text-sm font-light text-ink-secondary underline underline-offset-2 transition-colors duration-200 hover:text-brand-accent"
+                  aria-label={emailCopied ? "Email copied to clipboard" : "Copy email address"}
+                >
+                  {emailCopied ? "Copied!" : "emrichmichaelperrier@gmail.com"}
+                </button>
+              </motion.div>
+              <motion.div className="flex flex-wrap items-center gap-3">
+                <span className="label-mono text-ink-muted">Schedule</span>
+                <a
+                  href="https://calendly.com/emrichmp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-light text-ink-secondary underline underline-offset-2 transition-colors duration-200 hover:text-brand-accent"
+                >
+                  calendly.com/emrichmp
+                </a>
               </motion.div>
               <motion.div className="flex items-center gap-3">
                 <span className="label-mono text-ink-muted">Location</span>
@@ -111,13 +137,13 @@ const Contact = () => {
               </motion.div>
             </motion.div>
 
-            <p className="mt-8 label-mono text-ink-muted">
+            <p className="mt-6 label-mono text-ink-muted">
               <span className="inline-block w-2 h-2 rounded-full bg-brand-accent mr-2 align-middle" />
               Available for new projects
             </p>
           </motion.div>
 
-          <motion.div ref={formRef} className="lg:col-span-6 lg:col-start-7">
+          <motion.div ref={formRef} className="lg:col-span-6 lg:col-start-7 lg:mt-16">
             <form ref={form} onSubmit={handleSubmit}>
               <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <AnimatedField delay={0.2} inView={formInView}>

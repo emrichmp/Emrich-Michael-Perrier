@@ -37,3 +37,11 @@
   }
   .accent-line { @apply w-8 h-px bg-brand-accent; }
 }
+
+@layer utilities {
+  .panel-open nav {
+    opacity: 0.3;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+}

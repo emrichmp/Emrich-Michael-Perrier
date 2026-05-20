@@ -13,8 +13,8 @@ const factRows = [
 
 const BORDER_DURATION = 1;
 const BORDER_EASE = "easeOut" as const;
-const FACT_STAGGER = 0.2;
-const FACTS_START_DELAY = BORDER_DURATION + 0.15;
+const FACT_STAGGER = 0.1;
+const FACTS_START_DELAY = 0.12;
 
 const Coaching = () => {
   const [quoteRef, quoteInView] = useInView({
@@ -23,7 +23,8 @@ const Coaching = () => {
   });
   const [factsRef, factsInView] = useInView({
     triggerOnce: true,
-    threshold: 0.15
+    threshold: 0.01,
+    rootMargin: "0px 0px 22% 0px"
   });
 
   return (
