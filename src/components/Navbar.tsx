@@ -9,7 +9,7 @@ const navItems = [
   { name: "Contact", href: "#contact", id: "contact" }
 ];
 
-const socialLinks = [
+export const socialLinks = [
   {
     name: "Upwork",
     href: "https://www.upwork.com/freelancers/emrichmichaelperrier",
@@ -55,7 +55,7 @@ const socialLinks = [
   }
 ];
 
-const emailIcon = (
+export const emailIcon = (
   <svg
     className="w-4 h-4"
     fill="none"
@@ -89,11 +89,14 @@ const resumeIcon = (
   </svg>
 );
 
-const socialLinkClassName =
+export const socialLinkClassName =
   "group relative text-ink-muted hover:text-brand-accent hover:-translate-y-0.5 transition-all duration-200";
 
 const socialTooltipClassName =
   "pointer-events-none absolute left-full top-1/2 z-10 ml-3 -translate-y-1/2 whitespace-nowrap label-mono text-[10px] text-ink-muted opacity-0 translate-x-0 transition-all duration-100 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:text-brand-accent";
+
+export const mobileCopyTooltipClassName =
+  "pointer-events-none absolute top-full left-1/2 z-10 mt-2 -translate-x-1/2 whitespace-nowrap label-mono text-[10px] text-brand-accent transition-opacity duration-100";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -120,6 +123,17 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     const sectionIds = ["about", "projects", "experience", "coaching", "contact"];
 
     const updateActiveSection = () => {
@@ -142,10 +156,13 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const id = href.replace("#", "");
+    const element = document.getElementById(id);
+    if (!element) return;
+
+    const offset = id === "coaching" ? 80 : 0;
+    const top = element.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
@@ -153,7 +170,7 @@ const Navbar = () => {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ease-in-out ${
-          isScrolled
+          isScrolled || isMobileMenuOpen
             ? "bg-brand-base/90 backdrop-blur-sm border-brand-border/50"
             : "bg-transparent border-transparent"
         }`}
@@ -236,34 +253,66 @@ const Navbar = () => {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="md:hidden overflow-hidden bg-brand-base/95 backdrop-blur-sm border-t border-brand-border"
             >
-              <div className="flex flex-col items-center justify-center h-full gap-8 py-12">
-                {navItems.map(item => {
-                  const isActive = activeSection === item.id;
-                  return (
-                    <button
-                      key={item.name}
-                      type="button"
-                      onClick={() => scrollToSection(item.href)}
-                      className="flex flex-col items-center gap-2 group"
-                    >
-                      <span
-                        className={`w-1 h-1 rounded-full bg-brand-accent transition-opacity duration-200 ${
-                          isActive ? "opacity-100" : "opacity-0"
-                        }`}
-                        aria-hidden="true"
-                      />
-                      <span
-                        className={`label-mono text-lg transition-colors duration-200 ${
-                          isActive
-                            ? "text-ink-primary"
-                            : "text-ink-primary group-hover:text-brand-accent"
-                        }`}
+              <div className="flex h-full flex-col">
+                <div className="flex flex-1 flex-col items-center justify-center gap-8 py-12">
+                  {navItems.map(item => {
+                    const isActive = activeSection === item.id;
+                    return (
+                      <button
+                        key={item.name}
+                        type="button"
+                        onClick={() => scrollToSection(item.href)}
+                        className="flex flex-col items-center gap-2 group"
                       >
-                        {item.name}
-                      </span>
-                    </button>
-                  );
-                })}
+                        <span
+                          className={`w-1 h-1 rounded-full bg-brand-accent transition-opacity duration-200 ${
+                            isActive ? "opacity-100" : "opacity-0"
+                          }`}
+                          aria-hidden="true"
+                        />
+                        <span
+                          className={`label-mono text-lg transition-colors duration-200 ${
+                            isActive
+                              ? "text-ink-primary"
+                              : "text-ink-primary group-hover:text-brand-accent"
+                          }`}
+                        >
+                          {item.name}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+                <div className="flex items-center justify-center gap-6 px-6 pb-10">
+                  {socialLinks.map(link => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={socialLinkClassName}
+                      aria-label={link.name}
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className={socialLinkClassName}
+                    aria-label={emailCopied ? "Email copied" : "Copy email"}
+                  >
+                    <span
+                      className={`${mobileCopyTooltipClassName}${
+                        emailCopied ? " opacity-100" : " opacity-0"
+                      }`}
+                      aria-hidden="true"
+                    >
+                      Copied!
+                    </span>
+                    {emailIcon}
+                  </button>
+                </div>
               </div>
             </motion.div>
           )}
@@ -291,7 +340,7 @@ const Navbar = () => {
           type="button"
           onClick={handleCopyEmail}
           className={socialLinkClassName}
-          aria-label="Email"
+          aria-label="Copy email"
         >
           <span
             className={`${socialTooltipClassName}${
@@ -299,7 +348,7 @@ const Navbar = () => {
             }`}
             aria-hidden="true"
           >
-            {emailCopied ? "Copied!" : "Email"}
+            {emailCopied ? "Copied!" : "Copy email"}
           </span>
           {emailIcon}
         </button>

@@ -140,7 +140,7 @@ export const projects: Project[] = [
     id: 10,
     title: "Intrinsic Work",
     description:
-      "Productivity SaaS built around deep work and intentional time blocking — Super Day, Super List, Big Goals.",
+      "Productivity SaaS built around deep work and intentional time blocking: Super Day, Super List, Big Goals.",
     image: "/Projects/IntrinsicWork.png",
     technologies: ["Next.js", "NestJS", "TypeScript", "Supabase", "PostgreSQL"],
     liveUrl: "https://www.myintrinsicwork.com/",

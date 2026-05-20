@@ -34,7 +34,7 @@ const Hero = () => {
           webkit-playsinline="true"
           className="w-full h-full object-cover scale-110 blur-sm"
         >
-          <source src="https://res.cloudinary.com/dpqdfzsq5/video/upload/f_auto,q_auto,vc_auto/v1779225848/Hero_xkv5kc.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dpqdfzsq5/video/upload/v1779225848/Hero_xkv5kc.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50" />
       </div>
@@ -42,7 +42,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 w-full pb-24 px-6 sm:px-12 lg:px-24 lg:ml-12 text-left">
         <motion.span
-          className="label-mono text-brand-accent mb-4 block"
+          className="label-mono text-brand-accent mb-4 block font-medium sm:font-normal"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: easeOut }}
@@ -75,7 +75,7 @@ const Hero = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6, ease: easeOut }}
         >
-          Building products people actually use — Los Angeles.
+          Building products people actually use. Los Angeles.
         </motion.p>
 
         <motion.div

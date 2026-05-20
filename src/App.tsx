@@ -1,6 +1,5 @@
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-// import DemoReel from './components/DemoReel'
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
@@ -25,7 +24,6 @@ function App() {
           <Navbar />
         </div>
         <main className="w-full overflow-x-hidden">
-          {/* <DemoReel /> */}
           <About />
           <Projects />
           <Experience />

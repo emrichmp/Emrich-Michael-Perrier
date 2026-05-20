@@ -17,7 +17,7 @@ const Footer = () => {
     <footer className="bg-brand-base">
       <div ref={linksRef} className="px-6 pt-3 pb-5 sm:px-12 lg:px-24">
         <div className="container-max mx-auto">
-          <div className="relative flex items-center">
+          <div className="relative hidden sm:flex items-center">
             <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <MotionLine
                 x1="40"

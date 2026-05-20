@@ -4,20 +4,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
-  // Show button when page is scrolled down
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+  const updateVisibility = () => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches
+    const isPanelOpen = document.body.classList.contains('panel-open')
+    if (window.pageYOffset > 300 && !(isPanelOpen && isMobile)) {
       setIsVisible(true)
     } else {
       setIsVisible(false)
     }
   }
 
-  // Set the scroll event listener
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility)
+    window.addEventListener('scroll', updateVisibility)
+    window.addEventListener('resize', updateVisibility)
+    const observer = new MutationObserver(updateVisibility)
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] })
+    updateVisibility()
     return () => {
-      window.removeEventListener('scroll', toggleVisibility)
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
+      observer.disconnect()
     }
   }, [])
 

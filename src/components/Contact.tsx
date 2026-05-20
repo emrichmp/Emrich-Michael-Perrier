@@ -2,6 +2,12 @@ import { useState, useRef, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import emailjs from "@emailjs/browser";
+import {
+  socialLinks,
+  emailIcon,
+  socialLinkClassName,
+  mobileCopyTooltipClassName
+} from "./Navbar";
 
 const fieldClassName =
   "w-full bg-transparent border-b border-transparent px-0 py-3 text-ink-primary font-light text-sm focus:outline-none focus:border-ink-secondary transition-colors duration-200 placeholder:text-ink-muted placeholder:font-light";
@@ -218,6 +224,40 @@ const Contact = () => {
                   </p>
                 )}
               </motion.div>
+
+              <div className="mt-8 border-t border-brand-border pt-8 sm:hidden">
+                <div className="label-mono text-ink-muted mb-4">Social Links</div>
+                <div className="flex items-center justify-center gap-6">
+                  {socialLinks.map(link => (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={socialLinkClassName}
+                      aria-label={link.name}
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className={socialLinkClassName}
+                    aria-label={emailCopied ? "Email copied" : "Copy email"}
+                  >
+                    <span
+                      className={`${mobileCopyTooltipClassName}${
+                        emailCopied ? " opacity-100" : " opacity-0"
+                      }`}
+                      aria-hidden="true"
+                    >
+                      Copied!
+                    </span>
+                    {emailIcon}
+                  </button>
+                </div>
+              </div>
             </form>
           </motion.div>
         </motion.div>

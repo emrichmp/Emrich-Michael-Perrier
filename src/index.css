@@ -39,6 +39,9 @@
 }
 
 @layer utilities {
+  body.panel-open {
+    overflow: hidden;
+  }
   .panel-open nav {
     opacity: 0.3;
     pointer-events: none;

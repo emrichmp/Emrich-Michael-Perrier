@@ -6,27 +6,27 @@ const easeOut = [0.25, 0.1, 0.25, 1] as const;
 const facts = [
   {
     num: "01",
-    text: "Co-Founding CTO at Open & Run — building the operating system for small business owners."
+    text: "co-founding cto at open & run, building the operating system for small business owners."
   },
   {
     num: "02",
-    text: "Full stack engineer for 5+ years. $100K+ earned on Upwork. 100% job success score."
+    text: "full stack engineer for 5+ years. $100k+ earned on upwork. 100% job success score."
   },
   {
     num: "03",
-    text: "I think about the user more than most engineers do. Good code that serves a bad experience is still a bad product."
+    text: "i think about the user more than most engineers do. good code that serves a bad experience is still a bad product."
   },
   {
     num: "04",
-    text: "Training five days a week. Tennis three times a week. One hike. Every week, without fail."
+    text: "training five days a week. tennis three times a week. one hike. every week, without fail."
   },
   {
     num: "05",
-    text: "I've pulled products out of some genuinely hard places. That's what I'm most proud of."
+    text: "i've pulled products out of some genuinely hard places. that's what i'm most proud of."
   },
   {
     num: "06",
-    text: "New York born. Los Angeles based. Probably at a gym right now."
+    text: "new york born. los angeles based. probably at a gym right now."
   }
 ];
 
@@ -47,7 +47,7 @@ const FactItem = ({ num, text, index }: { num: string; text: string; index: numb
       <span className="text-xs text-brand-accent tracking-widest font-normal w-6 flex-shrink-0 mt-0.5">
         {num}
       </span>
-      <p className="text-sm font-light text-ink-secondary leading-relaxed">{text}</p>
+      <p className="text-sm font-light text-ink-secondary leading-relaxed lowercase">{text}</p>
     </motion.div>
   );
 };
@@ -61,7 +61,7 @@ const About = () => {
   return (
     <section id="about" className="py-16 px-6 sm:px-12 lg:px-24 bg-brand-base">
       <div className="container-max mx-auto">
-        <div className="label-mono">About</div>
+        <div className="label-mono">ABOUT</div>
         <div className="accent-line mt-3 mb-10" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -72,10 +72,10 @@ const About = () => {
             animate={photoInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <div className="absolute inset-0 translate-x-3 translate-y-3 bg-brand-surface border border-brand-border" />
+            <div className="absolute inset-0 translate-x-5 translate-y-5 bg-brand-surface border border-brand-border" />
             <img
               src="/About/emrich.png"
-              alt="Emrich-Michael Perrier"
+              alt="emrich-michael perrier"
               className="relative z-10 w-full aspect-[2/3] object-cover object-top"
             />
           </motion.div>
@@ -94,7 +94,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="label-mono text-ink-primary border-b border-brand-accent pb-0.5 hover:text-brand-accent transition-colors duration-200"
               >
-                Resume ↗
+                RESUME ↗
               </a>
             </div>
           </div>

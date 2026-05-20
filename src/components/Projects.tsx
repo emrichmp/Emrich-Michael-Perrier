@@ -61,18 +61,20 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
       </div>
 
       <div className="p-4 flex flex-col flex-1">
-        <span className="text-xs text-brand-accent tracking-widest mb-2">
+        <span className="text-xs text-brand-accent tracking-widest mb-2 transition-colors duration-300 group-hover:text-ink-primary">
           {formatProjectNumber(index)}
         </span>
-        <h3 className="text-sm font-normal text-ink-primary leading-snug mb-2">{project.title}</h3>
-        <p className="text-xs font-light text-ink-muted leading-relaxed mb-3 line-clamp-2">
+        <h3 className="text-sm font-normal text-ink-primary leading-snug mb-2 transition-colors duration-300 group-hover:text-brand-accent">
+          {project.title}
+        </h3>
+        <p className="hidden sm:block text-xs font-light text-ink-muted leading-relaxed mb-3 line-clamp-2 transition-colors duration-300 group-hover:text-ink-secondary">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-1 mb-4">
           {project.technologies.slice(0, 3).map(tech => (
             <span
               key={tech}
-              className="text-[10px] text-ink-muted border border-brand-border px-1.5 py-0.5"
+              className="text-[10px] text-ink-muted border border-brand-border px-1.5 py-0.5 transition-colors duration-300 group-hover:text-ink-secondary group-hover:border-brand-accent/50"
             >
               {tech}
             </span>
@@ -83,7 +85,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto text-xs text-ink-primary border-b border-brand-accent pb-0.5 hover:text-brand-accent transition-colors duration-200 w-fit"
+            className="mt-auto text-xs text-ink-primary border-b border-brand-accent pb-0.5 transition-colors duration-300 group-hover:text-brand-accent hover:text-brand-accent w-fit"
             onClick={e => e.stopPropagation()}
           >
             View Project ↗
@@ -96,6 +98,8 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const visibleProjects = showAll ? projects : projects.slice(0, 8);
   const selectedIndex =
     selectedProject === null ? -1 : projects.findIndex(p => p.id === selectedProject.id);
 
@@ -119,8 +123,8 @@ const Projects = () => {
           <div className="label-mono">Projects</div>
           <div className="accent-line mt-3 mb-12" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projects.map((project, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {visibleProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
@@ -129,6 +133,18 @@ const Projects = () => {
               />
             ))}
           </div>
+
+          {projects.length > 8 && !showAll && (
+            <div className="mt-12 flex justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAll(true)}
+                className="label-mono text-ink-muted border border-brand-border px-8 py-3 hover:border-brand-accent hover:text-brand-accent transition-all duration-200"
+              >
+                Show More ↓
+              </button>
+            </div>
+          )}
         </div>
       </motion.div>
 
