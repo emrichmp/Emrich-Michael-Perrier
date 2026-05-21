@@ -1,77 +1,86 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+const MotionLine = motion.line;
+const MotionPath = motion.path;
+
+const linkClassName = "hover:text-brand-accent transition-colors duration-200";
+
 const Footer = () => {
-  const [ref, inView] = useInView({
+  const year = new Date().getFullYear();
+  const [linksRef, linksInView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
+    threshold: 0.15
   });
 
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="bg-[#371e30] border-t border-[#a03e99] py-12" ref={ref}>
-      <div className="container-max">
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Brand Section with Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="text-center md:text-left"
-          >
-            <h3 className="text-xl font-medium text-[#f59ca9] mb-4">Emrich Michael Perrier</h3>
-            <div className="space-y-2 text-sm">
-              <p className="text-gray-300">emrichmichaelperrier@gmail.com</p>
-              <p className="text-gray-300">Los Angeles, CA</p>
-            </div>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-center md:text-right"
-          >
-            <h4 className="text-lg font-medium text-[#f59ca9] mb-4">Quick Links</h4>
-            <ul className="flex flex-col md:flex-row md:justify-end md:space-x-6 space-y-2 md:space-y-0">
-              {[
-                { name: "About", href: "#about" },
-                { name: "Projects", href: "#projects" },
-                { name: "Experience", href: "#experience" },
-                { name: "Coaching", href: "#coaching" },
-                { name: "Contact", href: "#contact" }
-              ].map(link => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-300 hover:text-[#f6828c] transition-colors duration-200 text-sm"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Copyright */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 pt-8 border-t border-[#a03e99]/30"
-        >
-          <div className="text-center">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} Emrich Michael Perrier. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-xs mt-1">
-              Built with React, TypeScript & Tailwind CSS
-            </p>
+    <footer className="bg-brand-base">
+      <div ref={linksRef} className="px-6 pt-3 pb-5 sm:px-12 lg:px-24">
+        <div className="container-max mx-auto">
+          <div className="relative hidden sm:flex items-center">
+            <svg width="40" height="12" viewBox="0 0 40 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <MotionLine
+                x1="40"
+                y1="6"
+                x2="0"
+                y2="6"
+                stroke="#262626"
+                strokeWidth="1"
+                initial={{ pathLength: 0 }}
+                animate={linksInView ? { pathLength: 1 } : {}}
+                transition={{ duration: 0.6, delay: 1, ease: "easeOut" }}
+              />
+              <MotionPath
+                d="M8 1L1 6L8 11"
+                stroke="#262626"
+                strokeWidth="1"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                initial={{ opacity: 0 }}
+                animate={linksInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.3, delay: 1.6 }}
+              />
+            </svg>
+            <motion.span
+              className="label-mono text-ink-muted text-[10px] ml-2"
+              initial={{ opacity: 0 }}
+              animate={linksInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.3, delay: 1.9 }}
+            >
+              Links
+            </motion.span>
           </div>
-        </motion.div>
+        </div>
+      </div>
+      <div className="border-t border-brand-border py-8 px-6 sm:px-12 lg:px-24">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-4">
+          <p className="label-mono text-ink-muted pl-3 sm:pl-4">
+            © {year} Emrich-Michael Perrier
+          </p>
+          <div className="flex flex-col items-end">
+            <span className="text-xs font-light text-ink-muted">
+              Designed and coded by yours truly. Built with React & TypeScript, deployed with{" "}
+              <a
+                href="https://vercel.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Vercel
+              </a>
+              . Set in{" "}
+              <a
+                href="https://rsms.me/inter/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClassName}
+              >
+                Inter
+              </a>
+              .
+            </span>
+          </div>
+        </div>
       </div>
     </footer>
   );

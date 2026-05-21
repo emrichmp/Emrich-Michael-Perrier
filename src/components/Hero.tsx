@@ -1,16 +1,25 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+const easeOut = [0.25, 0.1, 0.25, 1] as const;
+
 const Hero = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-end overflow-hidden"
       ref={ref}
     >
       {/* Video Background */}
@@ -20,107 +29,90 @@ const Hero = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="https://res.cloudinary.com/dpqdfzsq5/video/upload/so_0/v1779225848/Hero_xkv5kc.jpg"
           webkit-playsinline="true"
           className="w-full h-full object-cover scale-110 blur-sm"
         >
-          <source src="/Hero/Hero.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dpqdfzsq5/video/upload/v1779225848/Hero_xkv5kc.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
+      <div className="relative z-10 w-full pb-24 px-6 sm:px-12 lg:px-24 lg:ml-12 text-left">
+        <motion.span
+          className="label-mono text-brand-accent mb-4 block font-medium sm:font-normal"
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.8, ease: easeOut }}
         >
-          <motion.h1
-            className="heading-primary mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            Emrich-Michael Perrier
-          </motion.h1>
+          Full Stack Engineer & Co-Founding CTO
+        </motion.span>
 
-          <motion.h2
-            className="text-xl sm:text-2xl lg:text-3xl font-light uppercase tracking-wider mb-4 text-white"
-            initial={{ opacity: 0, y: 30 }}
+        <h1 className="heading-primary text-ink-primary font-normal tracking-tight">
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 40 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 0.6 }}
+            transition={{ duration: 0.9, delay: 0, ease: easeOut }}
           >
-            Full Stack Developer
-          </motion.h2>
+            Emrich-Michael
+          </motion.span>
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.15, ease: easeOut }}
+          >
+            Perrier
+          </motion.span>
+        </h1>
 
-          <motion.div
-            className="text-sm sm:text-base text-gray-400 mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 1, delay: 1.0 }}
+        <motion.p
+          className="text-ink-secondary text-base font-light mt-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6, ease: easeOut }}
+        >
+          I like to build things and guide people.
+        </motion.p>
+
+        <motion.div
+          className="mt-8 flex items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.9, ease: easeOut }}
+        >
+          <button
+            type="button"
+            onClick={() => scrollToSection("#projects")}
+            className="text-sm font-light text-ink-primary border-b border-brand-accent pb-0.5 hover:text-brand-accent transition-colors duration-200"
           >
-            <p>Top Rated Plus Developer • 5+ Years Experience • 100% Job Success Score</p>
-            <p>$100K+ Earned on Upwork • New York Born • Los Angeles Based</p>
-          </motion.div>
+            View Work
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollToSection("#contact")}
+            className="text-sm font-light text-ink-muted hover:text-ink-primary transition-colors duration-200 ml-8"
+          >
+            Get in Touch
+          </button>
         </motion.div>
       </div>
 
-      {/* Bouncing Arrow Indicators */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        {/* Top Arrow */}
-        <motion.div
-          className="w-6 h-6 text-white/50 -mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1.2 }}
+      <div
+        className="hidden md:flex absolute right-8 bottom-24 z-10 flex-col items-center gap-3"
+        aria-hidden="true"
+      >
+        <div className="w-px h-24 bg-brand-border" />
+        <motion.span
+          className="label-mono text-ink-muted text-[10px] [writing-mode:vertical-rl]"
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <svg
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 13l5 5 5-5"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
-
-        {/* Bottom Arrow */}
-        <motion.div
-          className="w-6 h-6 text-white/70"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 1, delay: 1.4 }}
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <svg
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M7 13l5 5 5-5"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
+          scroll
+        </motion.span>
       </div>
     </section>
   );

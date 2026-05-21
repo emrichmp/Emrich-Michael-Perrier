@@ -4,8 +4,8 @@
   "description": "Top Rated Plus Full Stack Developer in Los Angeles specializing in React, Vue, and TypeScript development",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#371e30",
-  "theme_color": "#371e30",
+  "background_color": "#0c0c0c",
+  "theme_color": "#0c0c0c",
   "orientation": "portrait-primary",
   "icons": [
     {

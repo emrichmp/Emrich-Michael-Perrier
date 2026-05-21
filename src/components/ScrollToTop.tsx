@@ -4,20 +4,26 @@ import { motion, AnimatePresence } from 'framer-motion'
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
-  // Show button when page is scrolled down
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+  const updateVisibility = () => {
+    const isMobile = window.matchMedia('(max-width: 767px)').matches
+    const isPanelOpen = document.body.classList.contains('panel-open')
+    if (window.pageYOffset > 300 && !(isPanelOpen && isMobile)) {
       setIsVisible(true)
     } else {
       setIsVisible(false)
     }
   }
 
-  // Set the scroll event listener
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility)
+    window.addEventListener('scroll', updateVisibility)
+    window.addEventListener('resize', updateVisibility)
+    const observer = new MutationObserver(updateVisibility)
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] })
+    updateVisibility()
     return () => {
-      window.removeEventListener('scroll', toggleVisibility)
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
+      observer.disconnect()
     }
   }, [])
 
@@ -34,7 +40,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <motion.button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-10 h-10 bg-[#371e30]/80 backdrop-blur-sm border border-[#a03e99] text-[#f59ca9] hover:text-[#f6828c] hover:border-[#f6828c] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 z-50 w-10 h-10 bg-brand-accent text-white hover:bg-brand-accent/80 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
           initial={{ opacity: 0, scale: 0, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0, y: 20 }}
