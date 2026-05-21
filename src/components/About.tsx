@@ -22,7 +22,7 @@ const facts = [
   },
   {
     num: "05",
-    text: "i like to build out porfolio websites for creatives or e-commerce stores for luxury brands. it let's me flex some creative flair in tech!"
+    text: "i like to build out portfolio websites for creatives or e-commerce stores for luxury brands. it let's me flex some creative flair in tech!"
   }
 ];
 

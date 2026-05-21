@@ -71,7 +71,7 @@ const SEO: React.FC<SEOProps> = ({
         isPartOf: {
           "@type": "WebSite",
           name: "Emrich-Michael Perrier - Full Stack Developer",
-          url: "https://emrich-michael-perrier.com"
+          url: "https://www.emrichperrier.com"
         },
         about: {
           "@type": "Person",

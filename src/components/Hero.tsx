@@ -34,7 +34,7 @@ const Hero = () => {
           webkit-playsinline="true"
           className="w-full h-full object-cover scale-110 blur-sm"
         >
-          <source src="https://res.cloudinary.com/dpqdfzsq5/video/upload/v1779225848/Hero_xkv5kc.mp4" type="video/mp4" />
+          <source src="https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/Hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/50" />
       </div>

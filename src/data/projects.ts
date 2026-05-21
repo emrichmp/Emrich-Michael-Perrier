@@ -207,7 +207,7 @@ export const projects: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript", "Smart TV", "WordPress", "LG App Development"],
     liveUrl:
       "https://us.lgappstv.com/main/tvapp/detail?appId=1220217&catCode1=&moreYn=N&cateYn=N&orderType=0&headerName=%EC%A0%84%EC%B2%B4&appRankCode=&sellrUsrNo=&curPage=1",
-    upworkUrl: "https://www.upwork.com/freelancers/~01bc1f2a5b93ba02d2?p=1776650934225866752",
+    upworkUrl: "https://www.upwork.com/freelancers/emrichperrier",
     longDescription:
       "Solely developed the OFTV LGTV Application using HTML, CSS and JavaScript based on provided Figma designs. Built cursor functionality for the LGTV Magic Remote feature and integrated with OFTV Zype and WordPress APIs to display content in an aesthetic UI.",
     features: [
@@ -227,7 +227,7 @@ export const projects: Project[] = [
     video: "/Projects/CovetByChristos.mp4",
     technologies: ["React", "Next.js", "Shopify", "VideoSDK", "Sanity", "HubSpot"],
     liveUrl: "https://www.covetbychristos.com/",
-    upworkUrl: "https://www.upwork.com/freelancers/~01bc1f2a5b93ba02d2?p=1776650934225866752",
+    upworkUrl: "https://www.upwork.com/freelancers/emrichperrier",
     longDescription:
       "Developed a comprehensive livestreaming platform with Shopify integration for Covet by Christos, a luxury fashion social commerce platform. Worked collaboratively with a team of developers and Figma designers to build a custom solution that enables live shopping experiences with real-time product integration.",
     features: [

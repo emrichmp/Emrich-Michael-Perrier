@@ -1,178 +1,111 @@
-# Emrich-Michael Perrier - Full Stack Developer Portfolio
+# Emrich-Michael Perrier — Portfolio
 
-Professional portfolio website for **Emrich-Michael Perrier**, a Top Rated Plus Full Stack Developer based in Los Angeles, California. Specializing in React, Vue, TypeScript, and modern web applications.
+Personal portfolio site for **Emrich-Michael Perrier**, a Top Rated Plus full stack developer based in Los Angeles.
 
-## 🚀 About Emrich-Michael Perrier
+**Live site:** [www.emrichperrier.com](https://www.emrichperrier.com)
 
-**Emrich-Michael Perrier** is a highly skilled Full Stack Developer with over 5 years of experience building scalable web applications. Based in Los Angeles, he has earned over $100K on Upwork with a 100% satisfaction rate and maintains a Top Rated Plus status.
+## Stack
 
-### Key Expertise
+- **React 19** + **TypeScript**
+- **Vite 7**
+- **Tailwind CSS** (custom `brand` / `ink` design tokens)
+- **Framer Motion** (section animations, project modals, page loader)
+- **react-intersection-observer** (scroll-triggered reveals)
+- **EmailJS** (contact form)
 
-- **Frontend Development**: React, Vue.js, TypeScript, Next.js
-- **Backend Development**: Ruby on Rails, Node.js, Supabase
-- **Modern Web Technologies**: Tailwind CSS, Vercel, Stripe API
-- **Specializations**: E-commerce, Analytics, Media Platforms, AI Tooling
+## Features
 
-## 🛠️ Technologies Used
+- Full-screen hero with video background (R2) and Cloudinary poster frame
+- Page load animation (`Loader`)
+- Project grid with detail modals and demo videos
+- Experience section with desktop vertical tabs and mobile horizontal tabs + arrow navigation
+- Beyond Code (coaching) section
+- Contact form, fixed social links, mobile nav with social row
+- SEO: meta tags, Open Graph, Twitter cards, JSON-LD in `index.html`, dynamic updates via `SEO.tsx`
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS, Framer Motion
-- **Build Tool**: Vite
-- **Deployment**: Vercel (recommended)
-- **Styling**: Tailwind CSS with custom design system
-- **Animations**: Framer Motion for smooth interactions
-
-## 📁 Project Structure
+## Project structure
 
 ```
-src/
-├── components/          # React components
-│   ├── Hero.tsx        # Landing section
-│   ├── About.tsx       # About section
-│   ├── Projects.tsx    # Portfolio showcase
-│   ├── Experience.tsx  # Work experience
-│   ├── Coaching.tsx    # Coaching services
-│   ├── Contact.tsx     # Contact form
-│   ├── Navbar.tsx      # Navigation
-│   ├── Footer.tsx      # Footer
-│   ├── SEO.tsx         # SEO optimization
-│   └── ScrollToTop.tsx # Scroll to top button
-├── assets/             # Static assets
-└── main.tsx           # App entry point
+├── public/                 # Static assets (images, videos, favicon, sitemap)
+│   ├── About/
+│   ├── BeyondCode/
+│   ├── Experience/         # Experience tab screenshots (Upwork, BUCK)
+│   └── Projects/           # Project images and demo videos
+├── src/
+│   ├── components/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Projects.tsx
+│   │   ├── Experience.tsx
+│   │   ├── Coaching.tsx    # Beyond Code section (#coaching)
+│   │   ├── Contact.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Loader.tsx
+│   │   ├── SEO.tsx
+│   │   └── ScrollToTop.tsx
+│   ├── data/
+│   │   ├── projects.ts     # Project copy, media paths, links
+│   │   └── experience.ts   # Work history, stack sidebar, images
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css           # Global styles, design tokens, utilities
+├── index.html              # Base SEO + structured data
+└── tailwind.config.js
 ```
 
-## 🚀 Getting Started
+## Getting started
 
-### Prerequisites
+**Prerequisites:** Node.js 18+
 
-- Node.js 18+
-- npm or yarn
+```bash
+git clone https://github.com/emrichmp/Emrich-Michael-Perrier.git
+cd Emrich-Michael-Perrier
+npm install
+npm run dev
+```
 
-### Installation
+Other scripts:
 
-1. **Clone the repository**
+| Command           | Description              |
+| ----------------- | ------------------------ |
+| `npm run build`   | Typecheck + production build to `dist/` |
+| `npm run preview` | Preview production build |
+| `npm run lint`    | ESLint                   |
 
-   ```bash
-   git clone https://github.com/your-username/emrich-michael-perrier-portfolio.git
-   cd emrich-michael-perrier-portfolio
-   ```
+## Customization
 
-2. **Install dependencies**
+| What to change        | Where |
+| --------------------- | ----- |
+| Projects & media      | `src/data/projects.ts`, `public/Projects/` |
+| Work experience       | `src/data/experience.ts`, `public/Experience/` |
+| About copy & photo    | `src/components/About.tsx`, `public/About/` |
+| Hero video            | `src/components/Hero.tsx` (R2 `src`, Cloudinary `poster`) |
+| Coaching / Beyond Code| `src/components/Coaching.tsx`, `public/BeyondCode/` |
+| Nav & social links    | `src/components/Navbar.tsx` |
+| Colors & typography   | `tailwind.config.js`, `src/index.css` |
+| Default SEO           | `index.html`, `src/components/SEO.tsx` |
+| Sitemap & robots      | `public/sitemap.xml`, `public/robots.txt` |
 
-   ```bash
-   npm install
-   ```
+The contact form uses EmailJS credentials in `src/components/Contact.tsx` (service ID, template ID, public key).
 
-3. **Start development server**
+## Deployment
 
-   ```bash
-   npm run dev
-   ```
+Built for static hosting (e.g. **Vercel**):
 
-4. **Build for production**
-   ```bash
-   npm run build
-   ```
+1. Connect the GitHub repo
+2. Build command: `npm run build`
+3. Output directory: `dist`
 
-## 🎨 Customization
+Ensure `public/sitemap.xml` and `public/robots.txt` use your canonical domain (`https://www.emrichperrier.com`).
 
-### Updating Personal Information
+## Contact
 
-- Edit `src/components/About.tsx` for bio and personal details
-- Update `src/components/Hero.tsx` for hero section content
-- Modify `src/components/Projects.tsx` for portfolio projects
-- Edit `src/components/Experience.tsx` for work experience
-
-### Styling
-
-- Main color scheme is defined in `tailwind.config.js`
-- Custom CSS classes are in `src/index.css`
-- Component-specific styles use Tailwind CSS utilities
-
-### SEO Optimization
-
-- Update meta tags in `index.html`
-- Modify structured data in `src/components/SEO.tsx`
-- Update `public/sitemap.xml` with your domain
-- Edit `public/robots.txt` for crawler instructions
-
-## 🌐 SEO Features
-
-This portfolio is fully optimized for search engines with:
-
-- **Comprehensive Meta Tags**: Title, description, keywords, Open Graph, Twitter Cards
-- **Structured Data**: Schema.org markup for Person, Organization, and WebSite
-- **Sitemap**: XML sitemap for search engine indexing
-- **Robots.txt**: Proper crawler instructions
-- **Semantic HTML**: Proper heading hierarchy and semantic elements
-- **Performance**: Optimized images and fast loading times
-- **Mobile-First**: Responsive design for all devices
-
-### Key SEO Keywords
-
-- Emrich-Michael Perrier
-- Emrich Perrier
-- Full Stack Developer Los Angeles
-- React Developer Los Angeles
-- Vue Developer Los Angeles
-- TypeScript Developer Los Angeles
-- Web Developer Los Angeles
-- Top Rated Plus Developer
-
-## 📱 Features
-
-- **Responsive Design**: Optimized for all devices
-- **Smooth Animations**: Framer Motion powered interactions
-- **Dark Theme**: Modern dark color scheme
-- **Fast Loading**: Optimized performance
-- **SEO Optimized**: Search engine friendly
-- **Accessible**: WCAG compliant design
-- **Contact Form**: Integrated contact functionality
-- **Portfolio Showcase**: Professional project display
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically detect the Vite configuration
-3. Deploy with one click
-
-### Netlify
-
-1. Build the project: `npm run build`
-2. Upload the `dist` folder to Netlify
-3. Configure build settings if needed
-
-### Other Platforms
-
-- **GitHub Pages**: Use `gh-pages` package
-- **Firebase Hosting**: Use Firebase CLI
-- **AWS S3**: Upload built files to S3 bucket
-
-## 📊 Performance
-
-- **Lighthouse Score**: 95+ across all metrics
-- **Core Web Vitals**: Optimized for all metrics
-- **Loading Speed**: Sub-3 second load times
-- **SEO Score**: 100/100
-
-## 🤝 Contributing
-
-This is a personal portfolio project. For suggestions or improvements, please open an issue or submit a pull request.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-**Emrich-Michael Perrier**
-
-- **Location**: Los Angeles, California
-- **Upwork**: [Top Rated Plus Profile](https://www.upwork.com/freelancers/~01example)
-- **Email**: [Contact through website form]
-- **Portfolio**: https://emrich-michael-perrier.com
+- **Portfolio:** [www.emrichperrier.com](https://www.emrichperrier.com)
+- **Upwork:** [freelancers/emrichperrier](https://www.upwork.com/freelancers/emrichperrier)
+- **LinkedIn:** [emrich-michael-perrier](https://www.linkedin.com/in/emrich-michael-perrier/)
+- **GitHub:** [emrichmp](https://github.com/emrichmp)
 
 ---
 
-Built with ❤️ by Emrich-Michael Perrier using React, TypeScript, and Vite.
+Built by Emrich-Michael Perrier with React, TypeScript, and Vite.

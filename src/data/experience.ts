@@ -5,7 +5,6 @@ export interface Experience {
   period: string;
   description: string;
   technologies: string[];
-  achievements: string[];
   url?: string | string[];
   linkLabel?: string;
   linkLabels?: string[];
@@ -37,13 +36,6 @@ export const experiences: Experience[] = [
       "Stripe",
       "Docusign"
     ],
-    achievements: [
-      "Built a full-stack platform using React, Next.js, Supabase, Vercel, and TailwindCSS",
-      "Implemented sign-up/login flows, email verification with NextAuth.js, and password reset features",
-      "Developed staff and location management pages, incident reporting tool, and integrated Docusign for automated PDF generation",
-      "Integrated Stripe API for billing and established CI/CD pipelines using GitHub and Vercel",
-      "Built RESTful APIs with Next.js authentication and implemented a chat tool for real-time communication"
-    ],
     url: ["https://www.openandrun.com/", "https://app.openandrun.com/"],
     linkLabels: ["Website", "App"],
     image: "/Projects/OpenAndRun.png"
@@ -56,12 +48,6 @@ export const experiences: Experience[] = [
     description:
       "Earned Upwork's Top Rated Plus badge with a 100% Job Success Score, delivering high-quality code for multiple frontend and full-stack projects.",
     technologies: ["JavaScript", "HTML", "CSS", "React", "Vue", "Shopify"],
-    achievements: [
-      "Earned Upwork's Top Rated Plus badge with a 100% Job Success Score",
-      "Consistently communicate with clients promptly and deliver progress updates on projects",
-      "Deliver high quality code commits for multiple frontend and full-stack projects",
-      "Completed projects for La Ligne, OFTV website, OFTV LG App, Covet by Christos, SelfBook, Ourmada, Open&Run and many more"
-    ],
     url: "https://www.upwork.com/freelancers/emrichperrier",
     linkLabel: "Upwork Profile",
     image: "/Experience/upworksc.png"
@@ -74,11 +60,6 @@ export const experiences: Experience[] = [
     description:
       "Managed front desk operations and supported various administrative and technical functions.",
     technologies: ["IT Support", "Event Management", "Administrative Systems"],
-    achievements: [
-      "Managed front desk operations, including calls, deliveries, and guest/client assistance",
-      "Supported budgeting, invoicing, maintenance coordination, and IT tech setups for meetings",
-      "Organized cultural events to streamline logistics and enhance staff engagement"
-    ],
     url: "https://buck.co/",
     linkLabel: "buck.co",
     image: "/Experience/bucky.png"
@@ -91,12 +72,6 @@ export const experiences: Experience[] = [
     description:
       "Led migration projects and built custom UI components for Tango's client map software.",
     technologies: ["VueJS", "Quasar Framework", "TypeScript", "Oracle Map Viewer"],
-    achievements: [
-      "Led the migration of Tango's Mapviewer from VueJS 2.0 and Quasar v1 to VueJS 3.0 and Quasar v2",
-      "Ensured functionality consistency through debugging and refactoring during migration",
-      "Built custom UI components for Tango's client map software using Quasar Framework and Oracle Map Viewer",
-      "Self-taught TypeScript, VueJS, and Quasar to accelerate feature development and software optimization"
-    ],
     url: "https://tangoanalytics.com/",
     linkLabel: "tangoanalytics.com",
     image: "/Projects/Tango.jpg"
@@ -109,11 +84,6 @@ export const experiences: Experience[] = [
     description:
       "Write and plan training programs for competitive athletes, providing personalized coaching and support.",
     technologies: ["Program Design", "Athlete Management", "Communication Systems"],
-    achievements: [
-      "Write and plan training programs for 15 competitive athletes tailored for their competitive and health goals",
-      "Oversaw Coaches Hours to assist athletes with technique, spotting for safety or general questions on movement mechanics",
-      "Provide constant communication with clients and check in with them and the training program over weekly calls"
-    ],
     image: "/BeyondCode/powerlifting-squat.jpg"
   }
 ];

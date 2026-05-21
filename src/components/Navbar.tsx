@@ -12,7 +12,7 @@ const navItems = [
 export const socialLinks = [
   {
     name: "Upwork",
-    href: "https://www.upwork.com/freelancers/emrichmichaelperrier",
+    href: "https://www.upwork.com/freelancers/emrichperrier",
     icon: (
       <svg className="w-4 h-4" viewBox="0 0 122.88 122.88" aria-hidden="true">
         <path
