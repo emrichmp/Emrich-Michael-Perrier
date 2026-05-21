@@ -1,17 +1,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import powerliftingPhoto from "./powerlfiitng.jpg";
 
 const PULL_QUOTE =
-  "i train five days a week, compete in powerlifting and tennis. the same discipline that gets me in the gym is what ships products at 2am.";
-
-const FACTS = [
-  "competitive powerlifter since 2019",
-  "playing tennis since age 7",
-  "training five days a week, every week, no exceptions",
-  "i think about systems the same way whether i'm writing code or building a training block",
-  "new york born. los angeles based."
-];
+  "i train five days a week, compete in powerlifting and tennis. the same discipline that gets me in the gym is what ships products with user intention.";
 
 const SERVICE_PILLS = ["Powerlifting - $60/mo", "AI Development - $80/hr"];
 
@@ -27,11 +18,6 @@ const TESTIMONIALS = [
     quote:
       "Working with Emrich on AI development was incredible. He helped me build a complete AI-powered application from scratch. Highly recommend!",
     attribution: "Alex K, Full-Stack Developer"
-  },
-  {
-    quote:
-      "The form analysis and programming adjustments were game-changing. I finally hit my goal of a 500lb deadlift thanks to Emrich's guidance.",
-    attribution: "Mike R, Intermediate Lifter"
   }
 ];
 
@@ -47,10 +33,6 @@ const Coaching = () => {
     triggerOnce: true,
     threshold: 0.15
   });
-  const [factsRef, factsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
   const [coachingRef, coachingInView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -59,47 +41,28 @@ const Coaching = () => {
   return (
     <section id="coaching" className="py-12 px-6 sm:px-12 lg:px-24 bg-brand-surface">
       <div className="container-max mx-auto">
-        <div className="label-mono">Beyond Code</div>
-        <div className="accent-line mt-3 mb-10" />
-
         {/* Block 1 - Person */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-8 items-start lg:items-center">
           <motion.div
             ref={quoteRef}
             initial={{ opacity: 0 }}
             animate={quoteInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 relative pl-6"
+            className="lg:col-span-5 relative pl-6 lg:pt-4"
           >
-            <motion.div
-              className="absolute left-0 top-0 w-px bg-brand-border"
-              initial={{ height: "0%" }}
-              animate={quoteInView ? { height: "100%" } : { height: "0%" }}
-              transition={{ duration: BORDER_DURATION, ease: BORDER_EASE }}
-            />
-            <blockquote className="text-2xl font-light text-ink-primary leading-relaxed lowercase">
-              {PULL_QUOTE}
-            </blockquote>
-            <p className="label-mono text-ink-muted mt-6">
-              Los Angeles, CA — New York City Born
-            </p>
-            <ul ref={factsRef} className="mt-6 space-y-2">
-              {FACTS.map((fact, index) => (
-                <motion.li
-                  key={fact}
-                  className="flex items-start gap-3"
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={factsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                >
-                  <span
-                    className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-brand-accent"
-                    aria-hidden
-                  />
-                  <span className="text-sm font-light text-ink-secondary lowercase">{fact}</span>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="label-mono">Beyond Code</div>
+            <div className="accent-line mt-3 mb-6" />
+            <div className="relative pl-6">
+              <motion.div
+                className="absolute left-0 top-0 w-px bg-brand-border"
+                initial={{ height: "0%" }}
+                animate={quoteInView ? { height: "100%" } : { height: "0%" }}
+                transition={{ duration: BORDER_DURATION, ease: BORDER_EASE }}
+              />
+              <blockquote className="text-2xl font-light text-ink-primary leading-relaxed lowercase">
+                {PULL_QUOTE}
+              </blockquote>
+            </div>
           </motion.div>
 
           <motion.div
@@ -111,7 +74,7 @@ const Coaching = () => {
           >
             <div className="absolute inset-0 translate-x-5 translate-y-5 bg-brand-base border border-brand-border" />
             <img
-              src={powerliftingPhoto}
+              src="/BeyondCode/powerlifting-squat.jpg"
               alt="Emrich powerlifting"
               className="relative z-10 w-full aspect-[4/3] object-cover object-top"
             />

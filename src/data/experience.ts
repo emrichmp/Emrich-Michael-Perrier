@@ -6,6 +6,9 @@ export interface Experience {
   description: string;
   technologies: string[];
   achievements: string[];
+  url?: string | string[];
+  linkLabel?: string;
+  linkLabels?: string[];
 }
 
 export interface ExperienceProject {
@@ -39,7 +42,9 @@ export const experiences: Experience[] = [
       "Developed staff and location management pages, incident reporting tool, and integrated Docusign for automated PDF generation",
       "Integrated Stripe API for billing and established CI/CD pipelines using GitHub and Vercel",
       "Built RESTful APIs with Next.js authentication and implemented a chat tool for real-time communication"
-    ]
+    ],
+    url: ["https://www.openandrun.com/", "https://app.openandrun.com/"],
+    linkLabels: ["Website", "App"]
   },
   {
     id: 2,
@@ -54,7 +59,9 @@ export const experiences: Experience[] = [
       "Consistently communicate with clients promptly and deliver progress updates on projects",
       "Deliver high quality code commits for multiple frontend and full-stack projects",
       "Completed projects for La Ligne, OFTV website, OFTV LG App, Covet by Christos, SelfBook, Ourmada, Open&Run and many more"
-    ]
+    ],
+    url: "https://www.upwork.com/freelancers/emrichperrier",
+    linkLabel: "Upwork Profile"
   },
   {
     id: 3,
@@ -68,7 +75,9 @@ export const experiences: Experience[] = [
       "Managed front desk operations, including calls, deliveries, and guest/client assistance",
       "Supported budgeting, invoicing, maintenance coordination, and IT tech setups for meetings",
       "Organized cultural events to streamline logistics and enhance staff engagement"
-    ]
+    ],
+    url: "https://buck.co/",
+    linkLabel: "buck.co"
   },
   {
     id: 4,
@@ -83,12 +92,14 @@ export const experiences: Experience[] = [
       "Ensured functionality consistency through debugging and refactoring during migration",
       "Built custom UI components for Tango's client map software using Quasar Framework and Oracle Map Viewer",
       "Self-taught TypeScript, VueJS, and Quasar to accelerate feature development and software optimization"
-    ]
+    ],
+    url: "https://tangoanalytics.com/",
+    linkLabel: "tangoanalytics.com"
   },
   {
     id: 5,
     title: "Strength and Conditioning Coach",
-    company: "JDI Barbell and Freelance",
+    company: "Strength & Fitness Coach",
     period: "12/2020 - Present",
     description:
       "Write and plan training programs for competitive athletes, providing personalized coaching and support.",

@@ -6,7 +6,7 @@ const easeOut = [0.25, 0.1, 0.25, 1] as const;
 const facts = [
   {
     num: "01",
-    text: "co-founding cto at open & run, building the operating system for small business owners."
+    text: "co-founding cto at open & run in Brooklyn, NY, building an operating system for small business owners."
   },
   {
     num: "02",
@@ -18,15 +18,11 @@ const facts = [
   },
   {
     num: "04",
-    text: "training five days a week. tennis three times a week. one hike. every week, without fail."
+    text: "new york born. los angeles based."
   },
   {
     num: "05",
-    text: "i've pulled products out of some genuinely hard places. that's what i'm most proud of."
-  },
-  {
-    num: "06",
-    text: "new york born. los angeles based. probably at a gym right now."
+    text: "i like to build out porfolio websites for creatives or e-commerce stores for luxury brands. it let's me flex some creative flair in tech!"
   }
 ];
 

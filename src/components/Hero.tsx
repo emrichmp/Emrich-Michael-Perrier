@@ -75,7 +75,7 @@ const Hero = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6, ease: easeOut }}
         >
-          Building products people actually use. Los Angeles.
+          I like to build things and guide people.
         </motion.p>
 
         <motion.div
