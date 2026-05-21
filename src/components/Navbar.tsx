@@ -255,6 +255,36 @@ const Navbar = () => {
             >
               <div className="flex h-full flex-col">
                 <div className="flex flex-1 flex-col items-center justify-center gap-8 py-12">
+                  <div className="flex items-center justify-center gap-6 px-6">
+                    {socialLinks.map(link => (
+                      <a
+                        key={link.name}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={socialLinkClassName}
+                        aria-label={link.name}
+                      >
+                        {link.icon}
+                      </a>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={handleCopyEmail}
+                      className={socialLinkClassName}
+                      aria-label={emailCopied ? "Email copied" : "Copy email"}
+                    >
+                      <span
+                        className={`${mobileCopyTooltipClassName}${
+                          emailCopied ? " opacity-100" : " opacity-0"
+                        }`}
+                        aria-hidden="true"
+                      >
+                        Copied!
+                      </span>
+                      {emailIcon}
+                    </button>
+                  </div>
                   {navItems.map(item => {
                     const isActive = activeSection === item.id;
                     return (
@@ -282,36 +312,6 @@ const Navbar = () => {
                       </button>
                     );
                   })}
-                </div>
-                <div className="flex items-center justify-center gap-6 px-6 pb-10">
-                  {socialLinks.map(link => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={socialLinkClassName}
-                      aria-label={link.name}
-                    >
-                      {link.icon}
-                    </a>
-                  ))}
-                  <button
-                    type="button"
-                    onClick={handleCopyEmail}
-                    className={socialLinkClassName}
-                    aria-label={emailCopied ? "Email copied" : "Copy email"}
-                  >
-                    <span
-                      className={`${mobileCopyTooltipClassName}${
-                        emailCopied ? " opacity-100" : " opacity-0"
-                      }`}
-                      aria-hidden="true"
-                    >
-                      Copied!
-                    </span>
-                    {emailIcon}
-                  </button>
                 </div>
               </div>
             </motion.div>

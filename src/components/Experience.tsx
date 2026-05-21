@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { experiences, sidebarProjects, type Experience as ExperienceEntry } from "../data/experience";
@@ -30,7 +30,7 @@ const ExperienceDetail = ({
       <div className="label-mono mt-1 text-ink-muted">{exp.period}</div>
       {exp.image && (
         <div
-          className={`aspect-video w-full overflow-hidden bg-brand-border ${
+          className={`hidden sm:block aspect-video w-full overflow-hidden bg-brand-border ${
             isDesktop ? "mt-6 max-w-2xl" : "mt-4"
           }`}
         >
@@ -85,6 +85,26 @@ const Experience = () => {
   const [activeId, setActiveId] = useState(experiences[0].id);
   const activeExp = experiences.find(e => e.id === activeId);
   const currentIndex = experiences.findIndex(e => e.id === activeId);
+  const tabsScrollRef = useRef<HTMLDivElement>(null);
+  const tabButtonRefs = useRef<Map<number, HTMLButtonElement>>(new Map());
+
+  useEffect(() => {
+    const tab = tabButtonRefs.current.get(activeId);
+    const container = tabsScrollRef.current;
+    if (!tab || !container) return;
+
+    const tabLeft = tab.offsetLeft;
+    const tabRight = tabLeft + tab.offsetWidth;
+    const scrollLeft = container.scrollLeft;
+    const containerWidth = container.clientWidth;
+
+    if (tabLeft < scrollLeft) {
+      container.scrollTo({ left: tabLeft, behavior: "smooth" });
+    } else if (tabRight > scrollLeft + containerWidth) {
+      container.scrollTo({ left: tabRight - containerWidth, behavior: "smooth" });
+    }
+  }, [activeId]);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -194,10 +214,18 @@ const Experience = () => {
 
             {/* Mobile: horizontal tabs */}
             <div className="lg:hidden">
-              <div className="no-scrollbar flex gap-0 overflow-x-auto border-b border-brand-border">
+              <div
+                ref={tabsScrollRef}
+                className="no-scrollbar flex scroll-smooth gap-0 overflow-x-auto border-b border-brand-border"
+                style={{ touchAction: "pan-x" }}
+              >
                 {experiences.map(exp => (
                   <button
                     key={exp.id}
+                    ref={el => {
+                      if (el) tabButtonRefs.current.set(exp.id, el);
+                      else tabButtonRefs.current.delete(exp.id);
+                    }}
                     type="button"
                     onClick={() => setActiveId(exp.id)}
                     className={`flex-shrink-0 border-b-2 px-4 py-3 text-left transition-all duration-200 -mb-px ${
@@ -209,6 +237,27 @@ const Experience = () => {
                     <span className="text-xs font-normal">{exp.company}</span>
                   </button>
                 ))}
+              </div>
+              <div className="mb-2 mt-4 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => setActiveId(experiences[currentIndex - 1].id)}
+                  disabled={currentIndex <= 0}
+                  className="text-ink-muted transition-colors duration-200 hover:text-brand-accent disabled:opacity-30"
+                >
+                  ←
+                </button>
+                <span className="label-mono text-xs text-ink-muted">
+                  {currentIndex + 1} / {experiences.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setActiveId(experiences[currentIndex + 1].id)}
+                  disabled={currentIndex >= experiences.length - 1}
+                  className="text-ink-muted transition-colors duration-200 hover:text-brand-accent disabled:opacity-30"
+                >
+                  →
+                </button>
               </div>
               <div className="mt-6">
                 <AnimatePresence mode="wait">

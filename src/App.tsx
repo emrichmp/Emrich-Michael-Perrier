@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -8,8 +10,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import SEO from "./components/SEO";
+import Loader from "./components/Loader";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <>
       <SEO
@@ -18,7 +23,14 @@ function App() {
         keywords="Emrich-Michael Perrier, Emrich Perrier, Full Stack Developer, Los Angeles Developer, React Developer, Vue Developer, TypeScript Developer, Web Developer Los Angeles, Frontend Developer, Backend Developer, Upwork Developer, Top Rated Plus Developer"
         section="home"
       />
-      <div className="min-h-screen bg-brand-base text-ink-primary w-full overflow-x-hidden">
+      <AnimatePresence>
+        {loading && <Loader setLoading={setLoading} />}
+      </AnimatePresence>
+      <motion.div
+        className="min-h-screen w-full overflow-x-hidden bg-brand-base text-ink-primary"
+        animate={{ opacity: loading ? 0 : 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
         <div className="relative h-screen">
           <Hero />
           <Navbar />
@@ -32,7 +44,7 @@ function App() {
         </main>
         <Footer />
         <ScrollToTop />
-      </div>
+      </motion.div>
     </>
   );
 }
