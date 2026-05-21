@@ -70,7 +70,7 @@ const About = () => {
           >
             <div className="absolute inset-0 translate-x-5 translate-y-5 bg-brand-surface border border-brand-border" />
             <img
-              src="/About/emrich.png"
+              src="/About/emrich.webp"
               alt="emrich-michael perrier"
               className="relative z-10 w-full aspect-[2/3] object-cover object-top"
             />

@@ -38,7 +38,7 @@ export const experiences: Experience[] = [
     ],
     url: ["https://www.openandrun.com/", "https://app.openandrun.com/"],
     linkLabels: ["Website", "App"],
-    image: "/Projects/OpenAndRun.png"
+    image: "/Projects/OpenAndRun.webp"
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ export const experiences: Experience[] = [
     technologies: ["JavaScript", "HTML", "CSS", "React", "Vue", "Shopify"],
     url: "https://www.upwork.com/freelancers/emrichperrier",
     linkLabel: "Upwork Profile",
-    image: "/Experience/upworksc.png"
+    image: "/Experience/upworksc.webp"
   },
   {
     id: 3,
@@ -62,7 +62,7 @@ export const experiences: Experience[] = [
     technologies: ["IT Support", "Event Management", "Administrative Systems"],
     url: "https://buck.co/",
     linkLabel: "buck.co",
-    image: "/Experience/bucky.png"
+    image: "/Experience/bucky.webp"
   },
   {
     id: 4,
@@ -74,7 +74,7 @@ export const experiences: Experience[] = [
     technologies: ["VueJS", "Quasar Framework", "TypeScript", "Oracle Map Viewer"],
     url: "https://tangoanalytics.com/",
     linkLabel: "tangoanalytics.com",
-    image: "/Projects/Tango.jpg"
+    image: "/Projects/Tango.webp"
   },
   {
     id: 5,
@@ -84,7 +84,7 @@ export const experiences: Experience[] = [
     description:
       "Write and plan training programs for competitive athletes, providing personalized coaching and support.",
     technologies: ["Program Design", "Athlete Management", "Communication Systems"],
-    image: "/BeyondCode/powerlifting-squat.jpg"
+    image: "/BeyondCode/powerlifting-squat.webp"
   }
 ];
 

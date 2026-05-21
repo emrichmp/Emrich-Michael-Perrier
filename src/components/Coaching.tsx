@@ -74,7 +74,7 @@ const Coaching = () => {
           >
             <div className="absolute inset-0 translate-x-5 translate-y-5 bg-brand-base border border-brand-border" />
             <img
-              src="/BeyondCode/powerlifting-squat.jpg"
+              src="/BeyondCode/powerlifting-squat.webp"
               alt="Emrich powerlifting"
               className="relative z-10 w-full aspect-[4/3] object-cover object-top"
             />

@@ -36,7 +36,7 @@ export const projects: Project[] = [
     id: 4,
     title: "La Ligne NYC E-Commerce",
     description: "E-commerce website development and maintenance for luxury fashion brand",
-    image: "/Projects/LaLigneNYC.png",
+    image: "/Projects/LaLigneNYC.webp",
     technologies: [
       "React",
       "TypeScript",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: "Open & Run Platform",
     description:
       "Full-stack business management platform for incident reporting, staff management, and operational excellence",
-    image: "/Projects/OpenAndRun.png",
+    image: "/Projects/OpenAndRun.webp",
     technologies: [
       "React",
       "Next.js",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     title: "Coeur Leather",
     description:
       "High-end e-commerce storefront for a luxury leather goods brand. Migrated from Shopify Hydrogen back to Shopify Liquid for maintainability and native Shopify features.",
-    image: "/Projects/CoeurLeather.png",
+    image: "/Projects/CoeurLeather.webp",
     technologies: ["Shopify", "Liquid", "JavaScript", "CSS"],
     liveUrl: "https://coeurleather.com",
     longDescription:
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     title: "Intrinsic Work",
     description:
       "Productivity SaaS built around deep work and intentional time blocking: Super Day, Super List, Big Goals.",
-    image: "/Projects/IntrinsicWork.png",
+    image: "/Projects/IntrinsicWork.webp",
     technologies: ["Next.js", "NestJS", "TypeScript", "Supabase", "PostgreSQL"],
     liveUrl: "https://www.myintrinsicwork.com/",
     longDescription:
@@ -166,7 +166,7 @@ export const projects: Project[] = [
     title: "Helios Solar Tracker",
     description:
       "Compliance SaaS for solar business owners to track material participation hours for IRS federal tax credits.",
-    image: "/Projects/Helios.png",
+    image: "/Projects/Helios.webp",
     technologies: ["TypeScript", "React", "Express", "PostgreSQL", "Drizzle ORM"],
     liveUrl: "https://solar-time-tracker.com/",
     longDescription:
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     title: "Tango Analytics Platform",
     description:
       "Full-stack map viewer migration and custom UI components for enterprise analytics platform",
-    image: "/Projects/Tango.jpg",
+    image: "/Projects/Tango.webp",
     technologies: ["Vue.js", "TypeScript", "Quasar Framework", "Oracle Map Viewer"],
     liveUrl: "https://tangoanalytics.com/products/tango-platform/",
     longDescription:
@@ -203,7 +203,7 @@ export const projects: Project[] = [
     title: "OFTV LG TV App",
     description:
       "Smart TV application development for LG TV platform with Magic Remote functionality",
-    image: "/Projects/LG_OFTV.png",
+    image: "/Projects/LG_OFTV.webp",
     technologies: ["HTML", "CSS", "JavaScript", "Smart TV", "WordPress", "LG App Development"],
     liveUrl:
       "https://us.lgappstv.com/main/tvapp/detail?appId=1220217&catCode1=&moreYn=N&cateYn=N&orderType=0&headerName=%EC%A0%84%EC%B2%B4&appRankCode=&sellrUsrNo=&curPage=1",
