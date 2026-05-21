@@ -64,9 +64,9 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
         <span className="text-xs text-brand-accent tracking-widest mb-2 transition-colors duration-300 group-hover:text-ink-primary">
           {formatProjectNumber(index)}
         </span>
-        <h3 className="text-sm font-normal text-ink-primary leading-snug mb-2 transition-colors duration-300 group-hover:text-brand-accent">
+        <p className="text-sm font-normal text-ink-primary leading-snug mb-2 transition-colors duration-300 group-hover:text-brand-accent">
           {project.title}
-        </h3>
+        </p>
         <p className="hidden sm:block text-xs font-light text-ink-muted leading-relaxed mb-3 line-clamp-2 transition-colors duration-300 group-hover:text-ink-secondary">
           {project.description}
         </p>

@@ -16,7 +16,7 @@ export default {
         ink: {
           primary: '#f0f0f0',
           secondary: '#a0a0a0',
-          muted: '#6b6b6b',
+          muted: '#8a8a8a',
         },
       },
     },
