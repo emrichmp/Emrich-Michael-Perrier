@@ -9,6 +9,7 @@ export interface Experience {
   url?: string | string[];
   linkLabel?: string;
   linkLabels?: string[];
+  image?: string;
 }
 
 export interface ExperienceProject {
@@ -44,7 +45,8 @@ export const experiences: Experience[] = [
       "Built RESTful APIs with Next.js authentication and implemented a chat tool for real-time communication"
     ],
     url: ["https://www.openandrun.com/", "https://app.openandrun.com/"],
-    linkLabels: ["Website", "App"]
+    linkLabels: ["Website", "App"],
+    image: "/Projects/OpenAndRun.png"
   },
   {
     id: 2,
@@ -61,7 +63,8 @@ export const experiences: Experience[] = [
       "Completed projects for La Ligne, OFTV website, OFTV LG App, Covet by Christos, SelfBook, Ourmada, Open&Run and many more"
     ],
     url: "https://www.upwork.com/freelancers/emrichperrier",
-    linkLabel: "Upwork Profile"
+    linkLabel: "Upwork Profile",
+    image: "/Experience/upworksc.png"
   },
   {
     id: 3,
@@ -77,7 +80,8 @@ export const experiences: Experience[] = [
       "Organized cultural events to streamline logistics and enhance staff engagement"
     ],
     url: "https://buck.co/",
-    linkLabel: "buck.co"
+    linkLabel: "buck.co",
+    image: "/Experience/bucky.png"
   },
   {
     id: 4,
@@ -94,7 +98,8 @@ export const experiences: Experience[] = [
       "Self-taught TypeScript, VueJS, and Quasar to accelerate feature development and software optimization"
     ],
     url: "https://tangoanalytics.com/",
-    linkLabel: "tangoanalytics.com"
+    linkLabel: "tangoanalytics.com",
+    image: "/Projects/Tango.jpg"
   },
   {
     id: 5,
@@ -108,7 +113,8 @@ export const experiences: Experience[] = [
       "Write and plan training programs for 15 competitive athletes tailored for their competitive and health goals",
       "Oversaw Coaches Hours to assist athletes with technique, spotting for safety or general questions on movement mechanics",
       "Provide constant communication with clients and check in with them and the training program over weekly calls"
-    ]
+    ],
+    image: "/BeyondCode/powerlifting-squat.jpg"
   }
 ];
 

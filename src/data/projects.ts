@@ -95,8 +95,15 @@ export const projects: Project[] = [
     image: "/Projects/CoeurLeather.png",
     technologies: ["Shopify", "Liquid", "JavaScript", "CSS"],
     liveUrl: "https://coeurleather.com",
-    longDescription: "Coming soon.",
-    features: []
+    longDescription:
+      "High-end e-commerce storefront for Coeur Leather, a luxury leather goods brand. Migrated the storefront from Shopify Hydrogen back to Shopify Liquid for maintainability and native Shopify features, including theme customization, product presentation, and checkout flows tailored to a premium brand experience.",
+    features: [
+      "Shopify Hydrogen to Liquid migration",
+      "Luxury product and collection page templates",
+      "Custom theme styling and brand-forward UX",
+      "Native Shopify checkout and merchandising features",
+      "Performance and maintainability improvements"
+    ]
   },
   {
     id: 1,
@@ -144,8 +151,15 @@ export const projects: Project[] = [
     image: "/Projects/IntrinsicWork.png",
     technologies: ["Next.js", "NestJS", "TypeScript", "Supabase", "PostgreSQL"],
     liveUrl: "https://www.myintrinsicwork.com/",
-    longDescription: "Coming soon.",
-    features: []
+    longDescription:
+      "Senior developer on Intrinsic Work, a productivity SaaS built around deep work, intentional time blocking, and goal setting. The product centers on Super Day, Super List, and Big Goals workflows to help users plan, focus, and execute with less friction across their week.",
+    features: [
+      "Super Day, Super List, and Big Goals product flows",
+      "Full-stack development with Next.js and NestJS",
+      "Supabase and PostgreSQL data layer",
+      "TypeScript across frontend and backend",
+      "Collaboration on product design and feature delivery"
+    ]
   },
   {
     id: 9,
@@ -155,8 +169,15 @@ export const projects: Project[] = [
     image: "/Projects/Helios.png",
     technologies: ["TypeScript", "React", "Express", "PostgreSQL", "Drizzle ORM"],
     liveUrl: "https://solar-time-tracker.com/",
-    longDescription: "Coming soon.",
-    features: []
+    longDescription:
+      "Lead engineer on Helios Solar Tracker, a compliance SaaS that helps solar business owners track material participation hours for IRS federal tax credits. Built tooling for accurate time tracking, reporting, and workflows that support audit-ready documentation for owners and operators.",
+    features: [
+      "Material participation hour tracking for tax compliance",
+      "React and TypeScript frontend",
+      "Express API and PostgreSQL backend",
+      "Drizzle ORM data modeling",
+      "Reporting workflows for solar business owners"
+    ]
   },
   {
     id: 6,

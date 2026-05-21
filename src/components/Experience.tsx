@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { experiences, sidebarProjects } from "../data/experience";
+import { experiences, sidebarProjects, type Experience as ExperienceEntry } from "../data/experience";
 
 const allSkills = [
   "React", "Next.js", "TypeScript", "JavaScript", "TailwindCSS",
@@ -11,6 +11,75 @@ const allSkills = [
 ];
 
 const tagClassName = "label-mono text-ink-muted text-[10px] border border-brand-border px-2 py-0.5";
+
+const ExperienceDetail = ({
+  exp,
+  variant
+}: {
+  exp: ExperienceEntry;
+  variant: "desktop" | "mobile";
+}) => {
+  const isDesktop = variant === "desktop";
+
+  return (
+    <>
+      <div className={isDesktop ? "text-2xl font-light text-ink-primary" : "text-xl font-light text-ink-primary"}>
+        {exp.company}
+      </div>
+      <div className="label-mono mt-2 text-brand-accent">{exp.title}</div>
+      <div className="label-mono mt-1 text-ink-muted">{exp.period}</div>
+      {exp.image && (
+        <div
+          className={`aspect-video w-full overflow-hidden bg-brand-border ${
+            isDesktop ? "mt-6 max-w-2xl" : "mt-4"
+          }`}
+        >
+          <img
+            src={exp.image}
+            alt={`${exp.company} preview`}
+            className="h-full w-full object-cover object-center"
+          />
+        </div>
+      )}
+      <p
+        className={`font-light leading-relaxed text-ink-primary ${
+          isDesktop ? "mt-6 text-base" : "mt-4 text-sm"
+        }`}
+      >
+        {exp.description}
+      </p>
+      {exp.technologies.length > 0 && (
+        <div className={`flex flex-wrap gap-2 ${isDesktop ? "mt-6" : "mt-4"}`}>
+          {exp.technologies.map(tech => (
+            <span key={tech} className={tagClassName}>
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+      {exp.url && (
+        <div className={`flex flex-wrap gap-4 ${isDesktop ? "mt-6" : "mt-4"}`}>
+          {(Array.isArray(exp.url) ? exp.url : [exp.url]).map((href, index) => {
+            const label = Array.isArray(exp.url)
+              ? exp.linkLabels?.[index] ?? href
+              : exp.linkLabel ?? href;
+            return (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label-mono border-b border-brand-accent pb-0.5 text-ink-primary transition-colors duration-200 hover:text-brand-accent"
+              >
+                {label} ↗
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </>
+  );
+};
 
 const Experience = () => {
   const [activeId, setActiveId] = useState(experiences[0].id);
@@ -116,43 +185,7 @@ const Experience = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="text-2xl font-light text-ink-primary">{activeExp.company}</div>
-                      <div className="label-mono mt-2 text-brand-accent">{activeExp.title}</div>
-                      <div className="label-mono mt-1 text-ink-muted">{activeExp.period}</div>
-                      <p className="mt-6 text-base font-light leading-relaxed text-ink-primary">
-                        {activeExp.description}
-                      </p>
-                      {activeExp.technologies.length > 0 && (
-                        <div className="mt-6 flex flex-wrap gap-2">
-                          {activeExp.technologies.map(tech => (
-                            <span key={tech} className={tagClassName}>
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {activeExp.url && (
-                        <div className="mt-6 flex flex-wrap gap-4">
-                          {(Array.isArray(activeExp.url) ? activeExp.url : [activeExp.url]).map(
-                            (href, index) => {
-                              const label = Array.isArray(activeExp.url)
-                                ? activeExp.linkLabels?.[index] ?? href
-                                : activeExp.linkLabel ?? href;
-                              return (
-                                <a
-                                  key={href}
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="label-mono border-b border-brand-accent pb-0.5 text-ink-primary transition-colors duration-200 hover:text-brand-accent"
-                                >
-                                  {label} ↗
-                                </a>
-                              );
-                            }
-                          )}
-                        </div>
-                      )}
+                      <ExperienceDetail exp={activeExp} variant="desktop" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -187,43 +220,7 @@ const Experience = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="text-xl font-light text-ink-primary">{activeExp.company}</div>
-                      <div className="label-mono mt-2 text-brand-accent">{activeExp.title}</div>
-                      <div className="label-mono mt-1 text-ink-muted">{activeExp.period}</div>
-                      <p className="mt-4 text-sm font-light leading-relaxed text-ink-primary">
-                        {activeExp.description}
-                      </p>
-                      {activeExp.technologies.length > 0 && (
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {activeExp.technologies.map(tech => (
-                            <span key={tech} className={tagClassName}>
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                      {activeExp.url && (
-                        <div className="mt-4 flex flex-wrap gap-4">
-                          {(Array.isArray(activeExp.url) ? activeExp.url : [activeExp.url]).map(
-                            (href, index) => {
-                              const label = Array.isArray(activeExp.url)
-                                ? activeExp.linkLabels?.[index] ?? href
-                                : activeExp.linkLabel ?? href;
-                              return (
-                                <a
-                                  key={href}
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="label-mono border-b border-brand-accent pb-0.5 text-ink-primary transition-colors duration-200 hover:text-brand-accent"
-                                >
-                                  {label} ↗
-                                </a>
-                              );
-                            }
-                          )}
-                        </div>
-                      )}
+                      <ExperienceDetail exp={activeExp} variant="mobile" />
                     </motion.div>
                   )}
                 </AnimatePresence>
