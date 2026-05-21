@@ -21,7 +21,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
   });
 
   return (
-    <motion.article
+    <motion.div
       ref={ref}
       role="button"
       tabIndex={0}
@@ -92,7 +92,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
           </a>
         )}
       </div>
-    </motion.article>
+    </motion.div>
   );
 };
 

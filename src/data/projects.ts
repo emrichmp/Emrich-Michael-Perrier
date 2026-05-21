@@ -18,7 +18,7 @@ export const projects: Project[] = [
     id: 5,
     title: "OFTV Web App",
     description: "Major web app components development including navbar, header & footer",
-    video: "/Projects/OFTV.mp4",
+    video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/OFTV.mp4",
     technologies: ["Vue.js", "TypeScript", "VueX", "HTML", "CSS", "JavaScript", "Figma"],
     liveUrl: "https://of.tv/",
     longDescription:
@@ -110,7 +110,7 @@ export const projects: Project[] = [
     title: "Siddharth Agrawal Films Portfolio",
     description:
       "Professional portfolio website showcasing reel, stills, bio and more for Producer, Director of Photography and Editor",
-    video: "/Projects/SiddWebsiteDemo.mp4",
+    video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/SiddWebsiteDemo.mp4",
     technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
     liveUrl: "https://www.siddharthagrawalfilms.com/",
     longDescription:
@@ -129,7 +129,7 @@ export const projects: Project[] = [
     title: "Kshitij Kapil Portfolio",
     description:
       "Professional portfolio website showcasing reel, stills, bio and more for Cinematographer and Director of Photography",
-    video: "/Projects/KshitijWebsiteDemo.mp4",
+    video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/KshitijWebsiteDemo.mp4",
     technologies: ["HTML", "CSS", "Tailwind CSS", "React", "Vercel"],
     liveUrl: "https://kshitijkapil.com/",
     longDescription:
@@ -224,7 +224,7 @@ export const projects: Project[] = [
     title: "Covet by Christos Platform",
     description:
       "Livestreaming platform with Shopify integration for luxury fashion social commerce",
-    video: "/Projects/CovetByChristos.mp4",
+    video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/CovetByChristos.mp4",
     technologies: ["React", "Next.js", "Shopify", "VideoSDK", "Sanity", "HubSpot"],
     liveUrl: "https://www.covetbychristos.com/",
     upworkUrl: "https://www.upwork.com/freelancers/emrichperrier",

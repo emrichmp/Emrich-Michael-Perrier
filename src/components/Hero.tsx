@@ -35,20 +35,21 @@ const Hero = () => {
           className="w-full h-full object-cover scale-110 blur-sm"
         >
           <source src="https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/Hero.mp4" type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English" default />
         </video>
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 w-full pb-24 px-6 sm:px-12 lg:px-24 lg:ml-12 text-left">
-        <motion.span
-          className="label-mono text-brand-accent mb-4 block font-medium sm:font-normal"
+        <motion.p
+          className="label-mono text-brand-accent mb-4 block m-0 font-medium sm:font-normal"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: easeOut }}
         >
           Full Stack Engineer & Co-Founding CTO
-        </motion.span>
+        </motion.p>
 
         <h1 className="heading-primary text-ink-primary font-normal tracking-tight">
           <motion.span

@@ -157,8 +157,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Favicon and App Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/emp.svg" />
@@ -168,20 +176,20 @@
   </head>
   <body>
     <div style="position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;" aria-hidden="true">
-      <h1>Emrich-Michael Perrier — Full Stack Engineer, Los Angeles</h1>
+      <p>Emrich-Michael Perrier — Full Stack Engineer, Los Angeles</p>
       <p>Full stack engineer and freelance web developer based in Los Angeles, CA. 5+ years of experience building products people actually use. Top Rated Plus on Upwork with a 100% job success score and $100K+ earned.</p>
-      <h2>What I Do</h2>
+      <p data-heading="What I Do">What I Do</p>
       <p>I build full stack web applications from architecture to interface. I specialize in React, Next.js, TypeScript, Node.js, NestJS, PostgreSQL, Supabase, and TailwindCSS. I work with startups, small businesses, and founders who need someone who thinks like a product engineer, not just a developer.</p>
-      <h2>Current Projects</h2>
+      <p data-heading="Current Projects">Current Projects</p>
       <ul>
         <li>Open & Run — Co-Founding CTO. SaaS platform for small business operations including staff management, incident reporting, billing, and document workflows.</li>
         <li>Helios Solar Tracker — Lead Engineer. Compliance SaaS for solar business owners tracking material participation hours for IRS federal tax credits.</li>
         <li>Intrinsic Work — Senior Developer. Productivity SaaS built around deep work, time blocking, and intentional planning.</li>
         <li>Coeur Leather — Technical Advisor. High-end Shopify e-commerce storefront for a luxury leather goods brand.</li>
       </ul>
-      <h2>Skills & Stack</h2>
+      <p data-heading="Skills & Stack">Skills & Stack</p>
       <p>React, Next.js, TypeScript, JavaScript, Node.js, NestJS, Express, PostgreSQL, Supabase, Drizzle ORM, MikroORM, TailwindCSS, Framer Motion, Shopify Liquid, Stripe, SendGrid, Google OAuth, Vercel, Fly.io</p>
-      <h2>Experience</h2>
+      <p data-heading="Experience">Experience</p>
       <ul>
         <li>Co-Founding CTO at Open & Run — December 2024 to present</li>
         <li>Freelance Full Stack Engineer on Upwork — November 2022 to present. Top Rated Plus, 100% job success score.</li>
@@ -189,9 +197,9 @@
         <li>Senior Developer at Intrinsic Work — 2024 to present</li>
         <li>Strength and Conditioning Coach — December 2020 to present</li>
       </ul>
-      <h2>Location</h2>
+      <p data-heading="Location">Location</p>
       <p>Los Angeles, CA. Available for freelance web development projects. New York City born.</p>
-      <h2>Contact</h2>
+      <p data-heading="Contact">Contact</p>
       <p>Email: emrichmichaelperrier@gmail.com. Available for new projects.</p>
     </div>
     <div id="root"></div>
