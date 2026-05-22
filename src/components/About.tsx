@@ -6,7 +6,7 @@ const easeOut = [0.25, 0.1, 0.25, 1] as const;
 const facts = [
   {
     num: "01",
-    text: "co-founding cto at open & run in Brooklyn, NY, building an operating system for small business owners."
+    text: "co-founding cto at open & run an operating system built for the people who actually run small businesses."
   },
   {
     num: "02",
@@ -14,7 +14,7 @@ const facts = [
   },
   {
     num: "03",
-    text: "i think about the user more than most engineers do. good code that serves a bad experience is still a bad product."
+    text: "most engineers stop at \"does it work.\" i don't. the product isn't done until the experience is right."
   },
   {
     num: "04",
@@ -22,7 +22,7 @@ const facts = [
   },
   {
     num: "05",
-    text: "i like to build out portfolio websites for creatives or e-commerce stores for luxury brands. it let's me flex some creative flair in tech!"
+    text: "outside of my main roles, i build for creatives and luxury brands. it's where i get to care as much about how something looks as how it works."
   }
 ];
 
