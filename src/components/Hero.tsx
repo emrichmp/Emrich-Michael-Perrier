@@ -17,11 +17,7 @@ const Hero = () => {
   };
 
   return (
-    <section
-      id="hero"
-      className="relative h-screen flex items-end overflow-hidden"
-      ref={ref}
-    >
+    <section id="hero" className="relative h-screen flex items-end overflow-hidden" ref={ref}>
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
@@ -34,7 +30,10 @@ const Hero = () => {
           webkit-playsinline="true"
           className="w-full h-full object-cover scale-110 blur-sm"
         >
-          <source src="https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/Hero.mp4" type="video/mp4" />
+          <source
+            src="https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/Hero.mp4"
+            type="video/mp4"
+          />
           <track kind="captions" srcLang="en" label="English" default />
         </video>
         <div className="absolute inset-0 bg-black/50" />
@@ -76,7 +75,7 @@ const Hero = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6, ease: easeOut }}
         >
-          I like to build things and guide people.
+          I like to build things and help people.
         </motion.p>
 
         <motion.div

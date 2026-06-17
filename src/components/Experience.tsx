@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { experiences, sidebarProjects, type Experience as ExperienceEntry } from "../data/experience";
+import Testimonials from "./Testimonials";
 
 const allSkills = [
   "React", "Next.js", "TypeScript", "JavaScript", "TailwindCSS",
@@ -276,6 +277,7 @@ const Experience = () => {
               </div>
             </div>
         </motion.div>
+        <Testimonials />
       </div>
     </section>
   );

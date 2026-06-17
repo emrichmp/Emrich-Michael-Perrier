@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <SEO
-        title="Emrich-Michael Perrier | Full Stack Engineer, Los Angeles"
+        title="Emrich | Full Stack Engineer, Los Angeles"
         description="Full stack engineer and Co-Founding CTO based in Los Angeles. 5+ years building SaaS products with React, Next.js, TypeScript, and Node.js. Top Rated Plus on Upwork, 100% job success score."
         keywords="Emrich-Michael Perrier, Emrich Perrier, Full Stack Engineer, Los Angeles Developer, React Developer, TypeScript Developer, Next.js Developer, Node.js Developer, Product Engineer, Web Developer Los Angeles, Upwork Developer, Top Rated Plus Developer, Freelance Developer Los Angeles"
         section="home"
