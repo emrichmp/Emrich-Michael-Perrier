@@ -10,7 +10,7 @@ const facts = [
   },
   {
     num: "02",
-    text: "full stack engineer for 5+ years. $100k+ earned on upwork. 100% job success score."
+    text: "full stack engineer for 5+ years. $200k+ earned on upwork. 100% job success score."
   },
   {
     num: "03",
@@ -22,7 +22,7 @@ const facts = [
   },
   {
     num: "05",
-    text: "outside of my main roles, i build for creatives and luxury brands. it's where i get to care as much about how something looks as how it works."
+    text: "outside of my main roles, i like to build for creatives and luxury brands. it's where i get to care as much about how something looks as how it works."
   }
 ];
 
