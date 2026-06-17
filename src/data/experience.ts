@@ -21,7 +21,7 @@ export interface ExperienceProject {
 export const experiences: Experience[] = [
   {
     id: 1,
-    title: "Senior Web Developer",
+    title: "Co-Founding CTO & Senior Web Developer",
     company: "Open & Run",
     period: "12/2024 - Present",
     description:

@@ -10,7 +10,7 @@ const facts = [
   },
   {
     num: "02",
-    text: "full stack engineer for 5+ years. $200k+ earned on upwork. 100% job success score."
+    text: "full stack engineer for 5+ years. $200K+ earned on upwork. 100% job success score."
   },
   {
     num: "03",
@@ -25,6 +25,27 @@ const facts = [
     text: "outside of my main roles, i like to build for creatives and luxury brands. it's where i get to care as much about how something looks as how it works."
   }
 ];
+
+const AvailabilityBadge = () => {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="flex gap-4 items-start border-l-2 border-brand-accent pl-3 py-1"
+      initial={{ opacity: 0, y: 16 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+    >
+      <span className="text-xs text-brand-accent tracking-widest font-normal w-6 flex-shrink-0 mt-0.5">
+        →
+      </span>
+      <p className="text-sm font-light text-ink-primary leading-relaxed lowercase">
+        currently open to senior full stack or cto-track engineering roles.
+      </p>
+    </motion.div>
+  );
+};
 
 const FactItem = ({ num, text, index }: { num: string; text: string; index: number }) => {
   const [ref, inView] = useInView({
@@ -81,6 +102,9 @@ const About = () => {
               {facts.map((fact, index) => (
                 <FactItem key={fact.num} num={fact.num} text={fact.text} index={index} />
               ))}
+              <div className="mt-2">
+                <AvailabilityBadge />
+              </div>
             </div>
 
             <div className="mt-8 pt-6 border-t border-brand-border w-full">

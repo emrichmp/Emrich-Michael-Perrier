@@ -18,9 +18,9 @@ function App() {
   return (
     <>
       <SEO
-        title="Emrich-Michael Perrier | Full Stack Developer in Los Angeles | React, Vue, TypeScript Expert"
-        description="Emrich-Michael Perrier is a Top Rated Plus Full Stack Developer in Los Angeles with 5+ years experience. Expert in React, Vue, TypeScript, and modern web applications. $100K+ earned on Upwork with 100% satisfaction rate."
-        keywords="Emrich-Michael Perrier, Emrich Perrier, Full Stack Developer, Los Angeles Developer, React Developer, Vue Developer, TypeScript Developer, Web Developer Los Angeles, Frontend Developer, Backend Developer, Upwork Developer, Top Rated Plus Developer"
+        title="Emrich-Michael Perrier | Full Stack Engineer, Los Angeles"
+        description="Full stack engineer and Co-Founding CTO based in Los Angeles. 5+ years building SaaS products with React, Next.js, TypeScript, and Node.js. Top Rated Plus on Upwork, 100% job success score."
+        keywords="Emrich-Michael Perrier, Emrich Perrier, Full Stack Engineer, Los Angeles Developer, React Developer, TypeScript Developer, Next.js Developer, Node.js Developer, Product Engineer, Web Developer Los Angeles, Upwork Developer, Top Rated Plus Developer, Freelance Developer Los Angeles"
         section="home"
       />
       <AnimatePresence>
