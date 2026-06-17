@@ -70,7 +70,7 @@ const ProjectCard = ({ project, index, onSelect }: ProjectCardProps) => {
         <p className="hidden sm:block text-xs font-light text-ink-muted leading-relaxed mb-3 line-clamp-2 transition-colors duration-300 group-hover:text-ink-secondary">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-1 mb-4">
+        <div className="hidden sm:flex flex-wrap gap-1 mb-4">
           {project.technologies.slice(0, 3).map(tech => (
             <span
               key={tech}
