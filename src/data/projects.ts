@@ -17,12 +17,12 @@ export const projects: Project[] = [
   {
     id: 5,
     title: "OFTV Web App",
-    description: "Major web app components development including navbar, header & footer",
+    description: "Built major UI components for of.tv including navbar, header, and footer from Figma designs.",
     video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/OFTV.mp4",
     technologies: ["Vue.js", "TypeScript", "VueX", "HTML", "CSS", "JavaScript", "Figma"],
     liveUrl: "https://of.tv/",
     longDescription:
-      "Worked on major website components such as the navbar, header & footer for the of.tv website. Utilized website examples and Figma designs to construct components using Vue.js, TypeScript, and VueX for state management.",
+      "Contracted to build major website components for of.tv. Implemented the navbar, header, and footer from Figma designs using Vue.js, TypeScript, and VueX for state management. Worked directly from design specs to deliver pixel-accurate, production-ready components.",
     features: [
       "Navbar component development and implementation",
       "Header section design and functionality",
@@ -35,7 +35,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "La Ligne NYC E-Commerce",
-    description: "E-commerce website development and maintenance for luxury fashion brand",
+    description: "Frontend contributions and Shopify Scripts → Functions migration for luxury fashion e-commerce brand.",
     image: "/Projects/LaLigneNYC.webp",
     technologies: [
       "React",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://lalignenyc.com",
     longDescription:
-      "Completed short-term contributions on the La Ligne NYC e-commerce website for The Lemonade Creative. Work included React/TypeScript code improvements, bug fixes, Shopify Scripts to Shopify Functions migration, and responsive design enhancements for the luxury fashion brand.",
+      "Short-term engagement through The Lemonade Creative on La Ligne NYC, a luxury fashion e-commerce brand. Delivered React/TypeScript code improvements, resolved bug tickets, migrated Shopify Scripts to Shopify Functions, and shipped responsive design fixes across the storefront.",
     features: [
       "React/TypeScript codebase improvements and optimizations",
       "Bug ticket resolution and client support",
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     id: 3,
     title: "Open & Run Platform",
     description:
-      "Full-stack business management platform for incident reporting, staff management, and operational excellence",
+      "Co-Founding CTO and sole engineer. Full-stack multi-tenant SaaS for small business operations.",
     image: "/Projects/OpenAndRun.webp",
     technologies: [
       "React",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     liveUrl: "https://app.openandrun.com/",
     websiteUrl: "https://www.openandrun.com/",
     longDescription:
-      "A comprehensive full-stack business management platform built as the Senior Developer and sole developer for Open & Run. The platform streamlines incident reporting, staff management, and operational processes for service-based businesses. Features include user authentication, real-time incident reporting, automated PDF generation, and integrated billing.",
+      "Co-Founding CTO and sole engineer on Open & Run — a full-stack multi-tenant SaaS platform built for the people who actually run small businesses. Architected and shipped the entire system from 0 to production: multi-tenant auth, role-based permissions, staff and location management, daily checklists, incident reporting, document vault, DocuSign PDF automation, and Stripe per-location subscription billing. Deployed on Vercel with scheduled cron jobs and extended serverless functions. Every technical decision — architecture, infrastructure, product, shipping — runs through me.",
     features: [
       "User authentication with NextAuth.js and email verification",
       "Staff and location management system",
@@ -91,12 +91,12 @@ export const projects: Project[] = [
     id: 11,
     title: "Coeur Leather",
     description:
-      "High-end e-commerce storefront for a luxury leather goods brand. Migrated from Shopify Hydrogen back to Shopify Liquid for maintainability and native Shopify features.",
+      "Technical advisor on luxury leather goods Shopify storefront. Led Hydrogen → Liquid migration.",
     image: "/Projects/CoeurLeather.webp",
     technologies: ["Shopify", "Liquid", "JavaScript", "CSS"],
     liveUrl: "https://coeurleather.com",
     longDescription:
-      "High-end e-commerce storefront for Coeur Leather, a luxury leather goods brand. Migrated the storefront from Shopify Hydrogen back to Shopify Liquid for maintainability and native Shopify features, including theme customization, product presentation, and checkout flows tailored to a premium brand experience.",
+      "Technical advisor and lead developer for Coeur Leather, a high-end leather goods brand. Made and executed the architecture decision to migrate the storefront from Shopify Hydrogen back to Shopify Liquid — trading edge-case flexibility for maintainability, native Shopify features, and a faster iteration cycle. Delivered custom theme styling, premium product and collection templates, and a checkout experience tailored to a luxury brand.",
     features: [
       "Shopify Hydrogen to Liquid migration",
       "Luxury product and collection page templates",
@@ -109,12 +109,12 @@ export const projects: Project[] = [
     id: 1,
     title: "Siddharth Agrawal Films Portfolio",
     description:
-      "Professional portfolio website showcasing reel, stills, bio and more for Producer, Director of Photography and Editor",
+      "Portfolio website for LA-based Producer, DP, and Editor. Built with Next.js and Framer Motion.",
     video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/SiddWebsiteDemo.mp4",
     technologies: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
     liveUrl: "https://www.siddharthagrawalfilms.com/",
     longDescription:
-      "A fully built frontend portfolio website designed to showcase Siddharth Agrawal's professional work as a Producer, Director of Photography, and Editor. The website features a modern, responsive design with smooth animations and optimized performance.",
+      "Designed and built a full portfolio website for Siddharth Agrawal, a Los Angeles-based Producer, Director of Photography, and Editor. The site showcases his reel, stills, bio, and contact with smooth animations, fast load times, and a clean responsive layout built to match the aesthetic of his work.",
     features: [
       "Professional portfolio showcase with reel and stills galleries",
       "Responsive design optimized for all devices",
@@ -128,12 +128,12 @@ export const projects: Project[] = [
     id: 2,
     title: "Kshitij Kapil Portfolio",
     description:
-      "Professional portfolio website showcasing reel, stills, bio and more for Cinematographer and Director of Photography",
+      "Portfolio website for Cinematographer and DP. Clean, fast, responsive.",
     video: "https://pub-b966d945afe84c2bb3f6bae36be5f166.r2.dev/KshitijWebsiteDemo.mp4",
     technologies: ["HTML", "CSS", "Tailwind CSS", "React", "Vercel"],
     liveUrl: "https://kshitijkapil.com/",
     longDescription:
-      "A fully built frontend portfolio website designed to showcase Kshitij Kapil's professional work as a Cinematographer and Director of Photography. The website features a modern, responsive design with smooth animations and optimized performance.",
+      "Designed and built a portfolio website for Kshitij Kapil, a Cinematographer and Director of Photography. Features reel and stills galleries, bio, and contact — built with a minimal aesthetic that keeps the focus on his work. Responsive across all devices with smooth transitions and optimized performance.",
     features: [
       "Professional portfolio showcase with reel and stills galleries",
       "Responsive design optimized for all devices",
@@ -147,12 +147,12 @@ export const projects: Project[] = [
     id: 10,
     title: "Intrinsic Work",
     description:
-      "Productivity SaaS built around deep work and intentional time blocking: Super Day, Super List, Big Goals.",
+      "Senior developer on full-stack productivity SaaS. Next.js frontend, NestJS backend, Google Calendar sync.",
     image: "/Projects/IntrinsicWork.webp",
     technologies: ["Next.js", "NestJS", "TypeScript", "Supabase", "PostgreSQL"],
     liveUrl: "https://www.myintrinsicwork.com/",
     longDescription:
-      "Senior developer on Intrinsic Work, a productivity SaaS built around deep work, intentional time blocking, and goal setting. The product centers on Super Day, Super List, and Big Goals workflows to help users plan, focus, and execute with less friction across their week.",
+      "Senior developer on Intrinsic Work, a productivity SaaS built around deep work and intentional planning. Responsible for feature delivery across the full stack — Next.js App Router frontend, NestJS backend, Supabase and PostgreSQL data layer. Key work includes architecting Google Calendar OAuth sync with encrypted token storage, building the Super Day time blocking flows, onboarding, and People/Notes modernization. Mentoring a junior developer alongside active shipping.",
     features: [
       "Super Day, Super List, and Big Goals product flows",
       "Full-stack development with Next.js and NestJS",
@@ -165,12 +165,12 @@ export const projects: Project[] = [
     id: 9,
     title: "Helios Solar Tracker",
     description:
-      "Compliance SaaS for solar business owners to track material participation hours for IRS federal tax credits.",
+      "Lead engineer on compliance SaaS for solar owners tracking IRS material participation hours.",
     image: "/Projects/Helios.webp",
     technologies: ["TypeScript", "React", "Express", "PostgreSQL", "Drizzle ORM"],
     liveUrl: "https://solar-time-tracker.com/",
     longDescription:
-      "Lead engineer on Helios Solar Tracker, a compliance SaaS that helps solar business owners track material participation hours for IRS federal tax credits. Built tooling for accurate time tracking, reporting, and workflows that support audit-ready documentation for owners and operators.",
+      "Lead engineer and security lead on Helios Solar Tracker, a compliance SaaS for solar business owners tracking material participation hours for IRS federal tax credits. Built the full system — Express 5 API, PostgreSQL, Drizzle ORM, Google Calendar and Gmail sync for automatic hour ingestion, joint filing partner workflows, and PDF year-end reports. Completed CASA Tier 2 security compliance with a clean DAST scan before Google OAuth approval.",
     features: [
       "Material participation hour tracking for tax compliance",
       "React and TypeScript frontend",
@@ -183,12 +183,12 @@ export const projects: Project[] = [
     id: 6,
     title: "Tango Analytics Platform",
     description:
-      "Full-stack map viewer migration and custom UI components for enterprise analytics platform",
+      "Led Vue 2 → 3 and Quasar v1 → v2 migration for enterprise map analytics platform.",
     image: "/Projects/Tango.webp",
     technologies: ["Vue.js", "TypeScript", "Quasar Framework", "Oracle Map Viewer"],
     liveUrl: "https://tangoanalytics.com/products/tango-platform/",
     longDescription:
-      "Led the migration of Tango's Mapviewer from VueJS 2.0 and Quasar v1 to VueJS 3.0 and Quasar v2, ensuring functionality consistency through debugging and refactoring. Built custom UI components for Tango's client map software using Quasar Framework and Oracle Map Viewer. Self-taught TypeScript, VueJS, and Quasar to accelerate feature development and software optimization.",
+      "Joined Tango Analytics as a Frontend UI Intern and was promoted to Junior Frontend Developer. Led the full migration of Tango's Mapviewer from VueJS 2 and Quasar v1 to VueJS 3 and Quasar v2, maintaining functionality consistency through debugging and refactoring. Built custom UI components for Oracle Map Viewer. Self-taught TypeScript, Vue, and Quasar on the job to accelerate delivery on an enterprise-grade product.",
     features: [
       "VueJS 2.0 to 3.0 migration with Quasar v1 to v2 upgrade",
       "Custom UI components development for map software",
@@ -202,14 +202,14 @@ export const projects: Project[] = [
     id: 7,
     title: "OFTV LG TV App",
     description:
-      "Smart TV application development for LG TV platform with Magic Remote functionality",
+      "Sole developer of OFTV's LG Smart TV app with Magic Remote support and Zype API integration.",
     image: "/Projects/LG_OFTV.webp",
     technologies: ["HTML", "CSS", "JavaScript", "Smart TV", "WordPress", "LG App Development"],
     liveUrl:
       "https://us.lgappstv.com/main/tvapp/detail?appId=1220217&catCode1=&moreYn=N&cateYn=N&orderType=0&headerName=%EC%A0%84%EC%B2%B4&appRankCode=&sellrUsrNo=&curPage=1",
     upworkUrl: "https://www.upwork.com/freelancers/emrichperrier",
     longDescription:
-      "Solely developed the OFTV LGTV Application using HTML, CSS and JavaScript based on provided Figma designs. Built cursor functionality for the LGTV Magic Remote feature and integrated with OFTV Zype and WordPress APIs to display content in an aesthetic UI.",
+      "Sole developer on the OFTV LG Smart TV application. Built entirely from HTML, CSS, and JavaScript based on Figma designs. Implemented cursor functionality for the LG Magic Remote, integrated OFTV's Zype API for content management, and connected WordPress API for dynamic content. Collaborated with a dedicated tester on Upwork to ship a polished, bug-free TV app experience.",
     features: [
       "LGTV Magic Remote cursor functionality implementation",
       "Figma design to code conversion and implementation",
@@ -229,7 +229,7 @@ export const projects: Project[] = [
     liveUrl: "https://www.covetbychristos.com/",
     upworkUrl: "https://www.upwork.com/freelancers/emrichperrier",
     longDescription:
-      "Developed a comprehensive livestreaming platform with Shopify integration for Covet by Christos, a luxury fashion social commerce platform. Worked collaboratively with a team of developers and Figma designers to build a custom solution that enables live shopping experiences with real-time product integration.",
+      "Built a custom livestreaming platform for Covet by Christos, a luxury fashion social commerce brand. Integrated VideoSDK for live shopping experiences, Shopify for real-time product management, Sanity CMS for content, and HubSpot CRM for customer data. Worked collaboratively with a team of developers and Figma designers to deliver a polished, production-ready live commerce experience.",
     features: [
       "Livestreaming platform development with VideoSDK integration",
       "Shopify e-commerce integration for real-time product management",
