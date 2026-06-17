@@ -14,7 +14,7 @@ const facts = [
   },
   {
     num: "03",
-    text: "most engineers stop at \"does it work.\" i don't. the product isn't done until the experience is right."
+    text: 'most engineers stop at "does it work." but for me the user experience is the most important thing. the product isn\'t done until the experience is right!'
   },
   {
     num: "04",
@@ -41,7 +41,7 @@ const AvailabilityBadge = () => {
         →
       </span>
       <p className="text-sm font-light text-ink-primary leading-relaxed lowercase">
-        currently open to senior full stack or cto-track engineering roles.
+        currently open to senior full stack or other cto-track engineering roles.
       </p>
     </motion.div>
   );

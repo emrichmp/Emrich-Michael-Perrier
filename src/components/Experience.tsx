@@ -13,28 +13,19 @@ const allSkills = [
 
 const tagClassName = "label-mono text-ink-muted text-[10px] border border-brand-border px-2 py-0.5";
 
-const ExperienceDetail = ({
-  exp,
-  variant
-}: {
-  exp: ExperienceEntry;
-  variant: "desktop" | "mobile";
-}) => {
-  const isDesktop = variant === "desktop";
+const ExperienceDetail = ({ exp }: { exp: ExperienceEntry }) => (
+  <>
+    <div className="text-xl font-light text-ink-primary lg:text-xl">{exp.company}</div>
+    <div className="label-mono mt-2 text-brand-accent lg:mt-1.5">{exp.title}</div>
+    <div className="label-mono mt-1 text-ink-muted">{exp.period}</div>
+    {exp.promotedFrom && (
+      <div className="label-mono mt-0.5 text-ink-muted">{exp.promotedFrom}</div>
+    )}
 
-  return (
-    <>
-      <div className={isDesktop ? "text-2xl font-light text-ink-primary" : "text-xl font-light text-ink-primary"}>
-        {exp.company}
-      </div>
-      <div className="label-mono mt-2 text-brand-accent">{exp.title}</div>
-      <div className="label-mono mt-1 text-ink-muted">{exp.period}</div>
+    {/* Mobile: original stacked layout */}
+    <div className="lg:hidden">
       {exp.image && (
-        <div
-          className={`hidden sm:block aspect-video w-full overflow-hidden bg-brand-border ${
-            isDesktop ? "mt-6 max-w-2xl" : "mt-4"
-          }`}
-        >
+        <div className="mt-4 hidden aspect-video w-full max-w-xs overflow-hidden bg-brand-border sm:block">
           <img
             src={exp.image}
             alt={`${exp.company} preview`}
@@ -42,15 +33,9 @@ const ExperienceDetail = ({
           />
         </div>
       )}
-      <p
-        className={`font-light leading-relaxed text-ink-primary ${
-          isDesktop ? "mt-6 text-base" : "mt-4 text-sm"
-        }`}
-      >
-        {exp.description}
-      </p>
+      <p className="mt-4 text-sm font-light leading-relaxed text-ink-primary">{exp.description}</p>
       {exp.technologies.length > 0 && (
-        <div className={`flex flex-wrap gap-2 ${isDesktop ? "mt-6" : "mt-4"}`}>
+        <div className="mt-4 flex flex-wrap gap-2">
           {exp.technologies.map(tech => (
             <span key={tech} className={tagClassName}>
               {tech}
@@ -59,7 +44,7 @@ const ExperienceDetail = ({
         </div>
       )}
       {exp.url && (
-        <div className={`flex flex-wrap gap-4 ${isDesktop ? "mt-6" : "mt-4"}`}>
+        <div className="mt-4 flex flex-wrap gap-4">
           {(Array.isArray(exp.url) ? exp.url : [exp.url]).map((href, index) => {
             const label = Array.isArray(exp.url)
               ? exp.linkLabels?.[index] ?? href
@@ -78,9 +63,54 @@ const ExperienceDetail = ({
           })}
         </div>
       )}
-    </>
-  );
-};
+    </div>
+
+    {/* Desktop: side-by-side layout */}
+    <div className="hidden lg:block">
+      <div className="mt-4 grid grid-cols-[18rem_1fr] gap-4">
+        {exp.image && (
+          <div className="aspect-video overflow-hidden bg-brand-border self-start">
+            <img
+              src={exp.image}
+              alt={`${exp.company} preview`}
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+        )}
+        <p className="text-sm font-light leading-relaxed text-ink-primary">{exp.description}</p>
+      </div>
+      {exp.technologies.length > 0 && (
+        <div className="mt-4 flex flex-wrap gap-2">
+          {exp.technologies.map(tech => (
+            <span key={tech} className={tagClassName}>
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+      {exp.url && (
+        <div className="mt-4 flex flex-wrap gap-4">
+          {(Array.isArray(exp.url) ? exp.url : [exp.url]).map((href, index) => {
+            const label = Array.isArray(exp.url)
+              ? exp.linkLabels?.[index] ?? href
+              : exp.linkLabel ?? href;
+            return (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="label-mono border-b border-brand-accent pb-0.5 text-ink-primary transition-colors duration-200 hover:text-brand-accent"
+              >
+                {label} ↗
+              </a>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </>
+);
 
 const Experience = () => {
   const [activeId, setActiveId] = useState(experiences[0].id);
@@ -206,7 +236,7 @@ const Experience = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ExperienceDetail exp={activeExp} variant="desktop" />
+                      <ExperienceDetail exp={activeExp} />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -270,7 +300,7 @@ const Experience = () => {
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ExperienceDetail exp={activeExp} variant="mobile" />
+                      <ExperienceDetail exp={activeExp} />
                     </motion.div>
                   )}
                 </AnimatePresence>

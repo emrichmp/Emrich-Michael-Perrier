@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useLayoutEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
@@ -6,16 +6,16 @@ const testimonials = [
   {
     id: 1,
     quote:
-      "Thinks outside the box and has a great understanding of different types of users when building functionality. Wonderful to work with, and Emrich was very consultative, working with us to get to the best solution given our custom build.",
-    name: "Brooke B",
-    company: "Covet by Christos"
+      "Working with Emrich was a pleasure! He is very talented, communicative and patient. Would absolutely work with him again in the future.",
+    name: "Deanna C",
+    company: "Coeur Leather"
   },
   {
     id: 2,
     quote:
-      "Working with Emrich was a pleasure! He is very talented, communicative and patient. Would absolutely work with him again in the future.",
-    name: "Deanna C",
-    company: "Coeur Leather"
+      "Thinks outside the box and has a great understanding of different types of users when building functionality. Wonderful to work with, and Emrich was very consultative, working with us to get to the best solution given our custom build.",
+    name: "Brooke B",
+    company: "Covet by Christos"
   },
   {
     id: 3,
@@ -43,11 +43,24 @@ const testimonials = [
 const n = testimonials.length;
 const cloned = [...testimonials, ...testimonials, ...testimonials];
 
-const TestimonialCard = ({ quote, name, company }: { quote: string; name: string; company: string }) => (
-  <div className="flex-shrink-0 w-[420px] mx-4 border border-brand-border bg-brand-surface p-4 flex flex-col gap-2">
+const TestimonialCard = ({
+  quote,
+  name,
+  company,
+  width
+}: {
+  quote: string;
+  name: string;
+  company: string;
+  width?: number;
+}) => (
+  <div
+    className="flex-shrink-0 border border-brand-border bg-brand-surface p-4 flex flex-col gap-2 sm:w-[420px] sm:mx-4"
+    style={width ? { width } : undefined}
+  >
     <span className="text-xl font-light text-brand-accent leading-none select-none">{"\u201C"}</span>
-    <p className="text-sm font-light text-ink-secondary leading-relaxed flex-1">{quote}</p>
-    <div className="border-t border-brand-border pt-4">
+    <p className="text-xs sm:text-sm font-light text-ink-secondary leading-relaxed flex-1">{quote}</p>
+    <div className="border-t border-brand-border pt-3 sm:pt-4">
       <p className="text-sm font-normal text-ink-primary">{name}</p>
       <p className="label-mono text-[10px] text-brand-accent mt-0.5">{company}</p>
     </div>
@@ -58,27 +71,49 @@ const navButtonClassName =
   "text-ink-muted transition-colors duration-200 hover:text-brand-accent";
 
 const Testimonials = () => {
+  const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   const isTransitioning = useRef(false);
   const [displayIndex, setDisplayIndex] = useState(0);
   const [trackIndex, setTrackIndex] = useState(n);
   const [step, setStep] = useState(452);
+  const [slideWidth, setSlideWidth] = useState<number | undefined>(undefined);
   const [animated, setAnimated] = useState(true);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const measureStep = useCallback(() => {
+    const viewport = viewportRef.current;
     const first = trackRef.current?.firstElementChild as HTMLElement | null;
     if (!first) return;
-    const style = window.getComputedStyle(first);
-    const marginX = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
-    setStep(first.offsetWidth + marginX);
+
+    const isDesktop = window.matchMedia("(min-width: 640px)").matches;
+    if (isDesktop) {
+      setSlideWidth(undefined);
+      const style = window.getComputedStyle(first);
+      const marginX = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+      setStep(first.offsetWidth + marginX);
+      return;
+    }
+
+    if (!viewport) return;
+    const width = viewport.clientWidth;
+    setSlideWidth(width);
+    setStep(width);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     measureStep();
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const ro = new ResizeObserver(measureStep);
+    ro.observe(viewport);
     window.addEventListener("resize", measureStep);
-    return () => window.removeEventListener("resize", measureStep);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measureStep);
+    };
   }, [measureStep]);
 
   const goTo = useCallback((dir: 1 | -1) => {
@@ -125,7 +160,7 @@ const Testimonials = () => {
       transition={{ duration: 0.7 }}
       className="w-full border-t border-brand-border pt-8 mt-8 overflow-hidden"
     >
-      <div className="px-6 sm:px-12 lg:px-24 mb-6 flex items-end justify-between gap-4">
+      <div className="px-6 sm:px-12 lg:px-24 mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="label-mono text-ink-muted">Client Testimonials</div>
           <div className="accent-line mt-3" />
@@ -137,22 +172,35 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div
-        className="relative overflow-hidden"
-        onMouseEnter={() => { pausedRef.current = true; }}
-        onMouseLeave={() => { pausedRef.current = false; }}
-      >
+      <div className="px-6 sm:px-12 lg:px-24">
         <div
-          ref={trackRef}
-          className="flex will-change-transform"
-          style={{
-            transform: `translateX(-${trackIndex * step}px)`,
-            transition: animated ? "transform 500ms ease-out" : "none"
+          ref={viewportRef}
+          className="relative overflow-hidden"
+          onMouseEnter={() => {
+            pausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            pausedRef.current = false;
           }}
         >
-          {cloned.map((t, i) => (
-            <TestimonialCard key={i} quote={t.quote} name={t.name} company={t.company} />
-          ))}
+          <div
+            ref={trackRef}
+            className="flex will-change-transform"
+            style={{
+              transform: `translateX(-${trackIndex * step}px)`,
+              transition: animated ? "transform 500ms ease-out" : "none"
+            }}
+          >
+            {cloned.map((t, i) => (
+              <TestimonialCard
+                key={i}
+                quote={t.quote}
+                name={t.name}
+                company={t.company}
+                width={slideWidth}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
